@@ -1,0 +1,12 @@
+<!-- index.wxml -->
+<view class="container">
+    <view class="tips" hidden="{{userInfo}}">
+        用户信息不完善，请前往
+        <navigator url="/pages/my/personalData/index">个人中心</navigator>
+        完善信息
+    </view>
+    <view class="list" wx:for="{{listArr}}">
+        {{item.name}}
+        <text>{{item.value}}{{item.unit}}</text>
+    </view>
+</view>

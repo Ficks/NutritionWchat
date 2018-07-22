@@ -1,0 +1,11 @@
+<!-- index.wxml -->
+<import src="../../../../wxParse/wxParse.wxml" />
+<view class="container">
+    <view class="title">
+        <view class="h1">{{details.title}}</view>
+        <view class="p">发布时间：{{details.datestr}} 作者：{{details.auth}}</view>
+    </view>
+    <div class="details">
+        <template is="wxParse" data="{{wxParseData:article.nodes}}" />
+    </div>
+</view>

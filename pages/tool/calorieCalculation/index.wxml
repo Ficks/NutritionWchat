@@ -1,0 +1,109 @@
+<!-- index.wxml -->
+<view class="container">
+    <view class="box">
+        <view class="list" bindtap="select" data-op="Height">
+            <view class="td">
+                身高
+                <text>{{ajaxData.Height==0?'请选择':ajaxData.Height+'cm'}}</text>
+            </view>
+        </view>
+        <view class="list" bindtap="select" data-op="Weight">
+            <view class="td">
+                体重
+                <text>{{ajaxData.Weight==0?'请选择':ajaxData.Weight+'kg'}}</text>
+            </view>
+        </view>
+        <view class="list" bindtap="select" data-op="Age">
+            <view class="td">
+                年龄
+                <text wx:if="{{yue==0}}">{{ajaxData.Age==0?'请选择':ajaxData.Age+'岁'}}</text>
+                <text wx:if="{{yue!=0}}">{{yue}}个月</text>
+            </view>
+        </view>
+        <view class="list" bindtap="showSelectOpen" data-key="sex">
+            <view class="td">
+                性别
+                <text>{{ajaxData.Gender==0?'请选择':ajaxData.Gender==1?"男":"女"}}</text>
+            </view>
+        </view>
+        <view class="list" bindtap="showSelectOpen" data-key="llsp">
+            <view class="td">
+                劳力水平
+                <text wx:if="{{ajaxData.LaborLevel==0}}">请选择</text>
+                <text wx:if="{{ajaxData.LaborLevel==1}}">轻度</text>
+                <text wx:if="{{ajaxData.LaborLevel==2}}">中度</text>
+                <text wx:if="{{ajaxData.LaborLevel==3}}">重度</text>
+            </view>
+        </view>
+        <view class="list" bindtap="showSelectOpen" data-key="yfxx">
+            <view class="td">
+                孕妇选项
+                <text wx:if="{{ajaxData.PregPeriod===''}}">请选择</text>
+                <text wx:if="{{ajaxData.PregPeriod==='0'}}">否</text>
+                <text wx:if="{{ajaxData.PregPeriod==1}}">早孕期</text>
+                <text wx:if="{{ajaxData.PregPeriod==2}}">中孕期</text>
+                <text wx:if="{{ajaxData.PregPeriod==3}}">晚孕期</text>
+                <text wx:if="{{ajaxData.PregPeriod==4}}">哺育期</text>
+            </view>
+        </view>
+    </view>
+    <view class="jsh" hidden="{{kcal==''}}">计算后预计每日所需能量</view>
+    <view class="kcal" hidden="{{kcal==''}}">{{kcal}}kcal</view>
+    <view class="submit_btn" bindtap="search">确定查询</view>
+    <!-- 刻度尺 -->
+    <view bindtap="hideKdcSelect" class="fixbom  {{kdc.show==false?'none':''}}"></view>
+    <view class="kdc_fix  {{kdc.show==false?'kdcout':''}}">
+        <view class="title">
+            选择{{kdc.name}}
+            <view class="yf" bindtap="showSelectOpen" data-key="yue" hidden="{{kdc.valKey!=='Age' || ajaxData.Age>0}}">
+                选择月份
+            </view>
+        </view>
+        <view class="value">{{kdc.name}} : {{kdc.value}}{{kdc.dw}}</view>
+        <view class="kdc">
+            <!-- 刻度尺 -->
+            <scroll-view scroll-x="true" bindscroll="bindscroll" scroll-left="{{scrollLeft}}">
+                <canvas canvas-id="canvas-ruler" id="canvas-ruler" style="height: {{canvasHeight}}px; width: {{canvasWidth}}px;"></canvas>
+            </scroll-view>
+            <canvas canvas-id="canvas-cursor" id="canvas-cursor"></canvas>
+        </view>
+    </view>
+    <!-- 性别 -->
+    <view bindtap="hideSelect" data-key="sex" class="fixbom  {{selectShow.sex==false?'none':''}}"></view>
+    <view class="kdc_fix autoheight {{selectShow.sex==false?'kdcout':''}}">
+        <view class="title">选择性别</view>
+        <view class="fix_listbox">
+            <view class="fix_list" bindtap="selectXz" data-key="sex" data-val="1">男</view>
+            <view class="fix_list" bindtap="selectXz" data-key="sex" data-val="2">女</view>
+        </view>
+    </view>
+    <view bindtap="hideSelect" data-key="llsp" class="fixbom  {{selectShow.llsp==false?'none':''}}"></view>
+    <view class="kdc_fix autoheight {{selectShow.llsp==false?'kdcout':''}}">
+        <view class="title">选择劳力水平</view>
+        <view class="fix_listbox">
+            <view class="fix_list" bindtap="selectXz" data-key="llsp" data-val="1">轻度</view>
+            <view class="fix_list" bindtap="selectXz" data-key="llsp" data-val="2">中度</view>
+            <view class="fix_list" bindtap="selectXz" data-key="llsp" data-val="3">重度</view>
+        </view>
+    </view>
+    <view bindtap="hideSelect" data-key="yfxx" class="fixbom  {{selectShow.yfxx==false?'none':''}}"></view>
+    <view class="kdc_fix autoheight {{selectShow.yfxx==false?'kdcout':''}}">
+        <view class="title">选择孕妇选项</view>
+        <view class="fix_listbox">
+            <view class="fix_list" bindtap="selectXz" data-key="yfxx" data-val="0">否</view>
+            <view class="fix_list" bindtap="selectXz" data-key="yfxx" data-val="1">早孕期</view>
+            <view class="fix_list" bindtap="selectXz" data-key="yfxx" data-val="2">中孕期</view>
+            <view class="fix_list" bindtap="selectXz" data-key="yfxx" data-val="3">晚孕期</view>
+            <view class="fix_list" bindtap="selectXz" data-key="yfxx" data-val="4">哺育期</view>
+        </view>
+    </view>
+    <view bindtap="hideSelect" data-key="yue" class="fixbom yuefixbom  {{selectShow.yue==false?'none':''}}"></view>
+    <view class="kdc_fix autoheight {{selectShow.yue==false?'yueout':''}}">
+        <view class="title">选择月份</view>
+        <view class="fix_listbox">
+            <view class="fix_list" wx:for="{{11}}" bindtap="selectXz" data-key="yue" data-val="{{item+1}}">
+                {{item+1}}
+            </view>
+        </view>
+    </view>
+</view>

@@ -1,0 +1,463 @@
+/**index.wxss**/
+
+page {
+  height: 100%;
+  padding-bottom: 58px;
+  box-sizing: border-box;
+}
+
+.container {
+  background: #f4f4f4;
+  height: 100%;
+  overflow: auto;
+}
+
+.barbom {
+  height: 58px;
+  width: 100%;
+  overflow: hidden;
+  background: #f5f5f5;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  box-shadow: 2px 2px 3px rgba(0, 0, 0, 1);
+}
+
+.barbom navigator,
+.barbom .add {
+  width: 33.333%;
+  text-align: center;
+  float: left;
+  color: #cdcdcd;
+  box-sizing: border-box;
+}
+
+.barbom navigator.active {
+  color: #8dc13b;
+}
+
+.barbom navigator image {
+  width: 25px;
+  height: 25px;
+  padding-top: 8px;
+}
+
+.barbom .add {
+  background: url("http://www.xyys.ltd/miniprogram/icon/tj.png") no-repeat center;
+  background-size: 40px;
+  height: 58px;
+}
+
+.top {
+  width: 100%;
+  height: 40px;
+  line-height: 40px;
+  background: #8dc13b;
+  color: #fff;
+  border-top: 1px solid #ccc;
+}
+
+.top .location {
+  float: left;
+  width: 15%;
+  text-align: center;
+}
+
+.top .search {
+  float: left;
+  margin-top: 5px;
+  width: 70%;
+  border-radius: 6px;
+  height: 30px;
+  color: #bfbfbf;
+  line-height: 30px;
+  padding-left: 30px;
+  background: #fff url("http://www.xyys.ltd/miniprogram/icon/search.png") no-repeat 6px center;
+  background-size: 20px;
+  box-sizing: border-box;
+}
+
+.top .right {
+  float: left;
+  width: 15%;
+  height: 100%;
+  background: url("http://www.xyys.ltd/miniprogram/icon/file.png") no-repeat center;
+  background-size: 30px;
+}
+
+/* 签到 */
+
+.datazs {
+  width: 100%;
+  color: #fff;
+  background: #8dc13b;
+  height: 180px;
+  overflow: hidden;
+}
+
+.datazs .left {
+  width: 30%;
+  float: left;
+  text-align: center;
+  background: url("http://www.xyys.ltd/miniprogram/icon/qd.png") no-repeat center 45px;
+  line-height: 180px;
+}
+
+.datazs .center {
+  width: 40%;
+  float: left;
+  padding-top: 10px;
+}
+
+.datazs .center .box {
+  margin: 0 auto;
+  width: 145px;
+  height: 145px;
+  border-radius: 50%;
+  text-align: center;
+  background: radial-gradient(circle, #8dc13b, #8dc13b, #fff 100%);
+}
+
+.datazs .center .box .h2 {
+  font-size: 14px;
+  padding-top: 20px;
+  position: relative;
+  top: 6px;
+  display: block;
+}
+
+.datazs .center .box .span {
+  font-size: 50px;
+  font-weight: 500;
+}
+
+.datazs .center .box navigator {
+  font-size: 12px;
+  position: relative;
+  color: #fff;
+  top: -7px;
+}
+
+.datazs .right {
+  width: 30%;
+  line-height: 180px;
+  text-align: center;
+  float: left;
+  background: url("http://www.xyys.ltd/miniprogram/icon/fx.png") no-repeat center 45px;
+}
+
+.datazs .ccz {
+  font-size: 16px;
+}
+
+/* 九宫格 */
+
+.jgg_grid {
+  padding: 15px;
+  box-sizing: border-box;
+  background: #fff;
+}
+
+.weui-grids {
+  position: relative;
+  overflow: hidden;
+}
+
+.weui-grids:before {
+  content: " ";
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  height: 1px;
+  /* border-top: 1px solid #f3f3f3; */
+  color: #f3f3f3;
+  -webkit-transform-origin: 0 0;
+  transform-origin: 0 0;
+  -webkit-transform: scaleY(0.5);
+  transform: scaleY(0.5);
+}
+
+.weui-grids:after {
+  content: " ";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1px;
+  bottom: 0;
+  /* border-left: 1px solid #f3f3f3; */
+  color: #f3f3f3;
+  -webkit-transform-origin: 0 0;
+  transform-origin: 0 0;
+  -webkit-transform: scaleX(0.5);
+  transform: scaleX(0.5);
+}
+
+.weui-grid {
+  position: relative;
+  float: left;
+  padding: 20px 10px;
+  width: 33.33333333%;
+  box-sizing: border-box;
+}
+
+.weui-grid:before {
+  content: " ";
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 1px;
+  bottom: 0;
+  border-right: 1px solid #f3f3f3;
+  color: #f3f3f3;
+  -webkit-transform-origin: 100% 0;
+  transform-origin: 100% 0;
+  -webkit-transform: scaleX(0.5);
+  transform: scaleX(0.5);
+}
+
+.weui-grid:after {
+  content: " ";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  height: 1px;
+  border-bottom: 1px solid #f3f3f3;
+  color: #f3f3f3;
+  -webkit-transform-origin: 0 100%;
+  transform-origin: 0 100%;
+  -webkit-transform: scaleY(0.5);
+  transform: scaleY(0.5);
+}
+
+.weui-grid:active {
+  background-color: #ECECEC;
+}
+
+.weui-grid__icon {
+  width: 32px;
+  height: 32px;
+  margin: 0 auto;
+}
+
+.weui-grid__icon image {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.weui-grid__icon+.weui-grid__label {
+  margin-top: 5px;
+}
+
+.weui-grid__label {
+  display: block;
+  text-align: center;
+  font-weight: bold;
+  color: #666;
+  font-size: 14px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.weui-grid:nth-child(3):before,
+.weui-grid:nth-child(6):before,
+.weui-grid:nth-child(9):before {
+  border-right: 0;
+}
+
+.weui-grid:nth-child(4):after,
+.weui-grid:nth-child(5):after,
+.weui-grid:nth-child(6):after {
+  border-bottom: 0;
+}
+
+.shanshituijian {
+  padding: 10px 5px 0 5px;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.shanshituijian .box {
+  width: 100%;
+  background: #fff;
+  border-radius: 4px;
+  box-sizing: border-box;
+  padding: 8px 15px 15px 15px;
+}
+
+.shanshituijian .tl {
+  font-size: 16px;
+  color: #3e3e3e;
+  font-weight: bold;
+}
+
+.shanshituijian .tl .right {
+  float: right;
+  color: #858585;
+  line-height: 30px;
+}
+
+.tab_bar {
+  width: 100%;
+  margin-top: 10px;
+  border-bottom: 1px solid #e4e4e4;
+  height: auto;
+  overflow: hidden;
+}
+
+.tab_bar .list {
+  float: left;
+  color: #666666;
+  font-weight: bold;
+  line-height: 30px;
+  height: 30px;
+  width: 33.3333%;
+  text-align: center;
+  position: relative;
+}
+
+.tab_bar .list.active:after {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  margin-left: -15px;
+  content: "";
+  display: block;
+  height: 3px;
+  width: 30px;
+  background: #f59f32;
+}
+
+.list_box {
+  height: auto;
+  overflow: hidden;
+  padding-left: 20px;
+  box-sizing: border-box;
+}
+
+.list_box .list {
+  position: relative;
+  line-height: 35px;
+  height: 35px;
+  color: #666666;
+}
+
+.list_box .list text {
+  float: right;
+}
+
+.list_box .list:after {
+  content: "";
+  display: block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #000;
+  position: absolute;
+  left: -15px;
+  top: 13px;
+}
+
+.share {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999;
+}
+
+.share image {
+  float: right;
+  padding-right: 50px;
+  width: 40%;
+}
+
+.share .text {
+  padding-top: 15px;
+}
+
+.share view {
+  text-align: center;
+  clear: both;
+  color: #fff;
+  line-height: 30px;
+  font-size: 16px;
+}
+
+.more {
+  text-align: center;
+}
+
+/* 菜单 */
+
+.navalert {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 255px;
+  overflow: hidden;
+  box-sizing: border-box;
+  background: #fff;
+  z-index: 999;
+  transition: all .5s;
+}
+
+.navtol navigator {
+  display: block;
+  float: left;
+  width: 33.3333%;
+  text-align: center;
+  padding-top: 50px;
+}
+
+.navtol .title {
+  color: #505050;
+  font-size: 16px;
+}
+
+.navtol .p {
+  font-size: 12px;
+  color: #505050;
+}
+
+.navtol navigator:nth-child(1) {
+  background: url("http://www.xyys.ltd/miniprogram/icon/nav_zc.png") no-repeat center 15px;
+  background-size: 30px;
+}
+
+.navtol navigator:nth-child(2) {
+  background: url("http://www.xyys.ltd/miniprogram/icon/nav_wc.png") no-repeat center 15px;
+  background-size: 30px;
+}
+
+.navtol navigator:nth-child(3) {
+  background: url("http://www.xyys.ltd/miniprogram/icon/nav_wwc.png") no-repeat center 15px;
+  background-size: 30px;
+}
+
+.navtol navigator:nth-child(4) {
+  background: url("http://www.xyys.ltd/miniprogram/icon/nav_yd.png") no-repeat center 15px;
+  background-size: 30px;
+}
+
+.navtol navigator:nth-child(5) {
+  background: url("http://www.xyys.ltd/miniprogram/icon/nav_jl.png") no-repeat center 15px;
+  background-size: 30px;
+}
+
+.nav_cancel {
+  background: url("http://www.xyys.ltd/miniprogram/icon/tj.png") no-repeat center 15px;
+  background-size: 40px;
+  height: 55px;
+  width: 40px;
+  margin: 0 auto;
+  margin-top: 15px;
+  transform: rotate(44deg);
+}
+
+.nhide {
+  bottom: -300px;
+}

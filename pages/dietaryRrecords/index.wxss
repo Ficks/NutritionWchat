@@ -1,0 +1,70 @@
+/**index.wxss**/
+
+page {
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.container {
+  background: #f3f3f3;
+  height: 100%;
+  box-sizing: border-box;
+  overflow: auto;
+}
+
+.dates {
+  text-align: center;
+  margin: 0 auto;
+  width: 160px;
+  height: 40px;
+  line-height: 40px;
+  color: #fff;
+  border-radius: 4px;
+  margin-top: 20px;
+  background: #8dc13b;
+}
+
+.list {
+  background: #fff;
+  padding: 0 15px;
+  box-sizing: border-box;
+  background: #fff;
+  margin-top: 12.5px;
+}
+
+.list .tl {
+  height: 40px;
+  line-height: 40px;
+  color: #7d7d7d;
+  font-size: 16px;
+  border-bottom: 1px solid #dcdcdc;
+  padding-left: 30px;
+}
+
+.child_list {
+  height: 40px;
+  overflow: hidden;
+  width: 100%;
+  line-height: 40px;
+  color: #717171;
+}
+
+.child_list text {
+  float: right;
+  color: #8dc13b;
+}
+
+.list:nth-child(1) .tl {
+  background: url("http://www.xyys.ltd/miniprogram/icon/nav_zc.png") no-repeat left center;
+  background-size: 24px;
+}
+
+.list:nth-child(2) .tl {
+  background: url("http://www.xyys.ltd/miniprogram/icon/wc.png") no-repeat left center;
+  background-size: 24px;
+}
+
+.list:nth-child(3) .tl {
+  background: url("http://www.xyys.ltd/miniprogram/icon/wwc.png") no-repeat left center;
+  background-size: 24px;
+}

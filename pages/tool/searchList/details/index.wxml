@@ -1,0 +1,77 @@
+<!-- index.wxml -->
+<view class="container">
+    <view class="details">
+        <view class="top">
+            <image src="{{src}}" mode="widthFix" />
+            <view class="wz">
+                <view class="h1">{{details.title}}</view>
+                <view class="p">{{details.kcal}}kcal({{details.ming}}g)</view>
+            </view>
+        </view>
+        <view class="bom">
+            <view>
+                禁忌：
+                <text wx:for="{{details.taboo}}">{{item.Value}}</text>
+            </view>
+            <view>适宜：{{details.suitable}}</view>
+        </view>
+    </view>
+    <view class="tl">描述</view>
+    <view class="miaoshu">
+        <view class="imgs">
+            <image src="http://www.xyys.ltd/miniprogram/icon/ms.png" mode="widthFix" />
+        </view>
+        <view class="wz">{{details.describe}}</view>
+    </view>
+    <view class="tl">
+        所含营养量
+        <text>每{{details.ming}}g</text>
+    </view>
+    <view class="list_box">
+        <view wx:for="{{details.nutrientarr}}">
+            {{item.name}}
+            <text>{{item.value+item.unit}}</text>
+        </view>
+    </view>
+    <view class="tl" hidden="{{type!=3}}">微量元素</view>
+    <view class="list_box" hidden="{{type!=3}}">
+        <view wx:for="{{details.taboo}}">
+            {{item.name}}
+            <text>{{item.value+item.unit}}</text>
+        </view>
+    </view>
+    <view class="submit_btn" bindtap="showAdd">{{type!=''?'添加到今日饮食':'添加到过敏食物'}}</view>
+    <view bindtap="hideAdd" class="fixbom  {{show==false?'none':''}}"></view>
+    <view class="addfix  {{show==false?'hide':''}}">
+        <view class="tops">
+            <picker mode="date" value="{{date}}" bindchange="bindDateChange">
+                <view class="date picker">{{date}}</view>
+            </picker>
+            <view class="cancel" bindtap="hideAdd">取消</view>
+        </view>
+        <view class="add_details">
+            <image src="{{src}}" mode="widthFix" />
+            <view class="wz">
+                <view class="h2">{{details.title}}</view>
+                <view class="p">{{details.kcal}}kcal({{details.ming}}g)</view>
+            </view>
+            <view class="details_cancel" bindtap="hideAdd">详情></view>
+        </view>
+        <view class="kdc">
+            <!-- 刻度尺 -->
+            <view class="dw">
+                <text class="kcal">{{details.kcal}}kcal</text>
+                <text class="value">{{value}}g({{lian}}两)</text>
+            </view>
+            <scroll-view scroll-x="true" bindscroll="bindscroll" scroll-left="{{scrollLeft}}">
+                <canvas canvas-id="canvas-ruler" id="canvas-ruler" style="height: {{canvasHeight}}px; width: {{canvasWidth}}px;"></canvas>
+            </scroll-view>
+            <canvas canvas-id="canvas-cursor" id="canvas-cursor"></canvas>
+        </view>
+        <!-- 选择早餐中餐晚餐 -->
+        <picker bindchange="foodFn" value="{{index}}" range="{{foodArr}}">
+            <view class="food">{{foodName==''?'请选择餐次':foodName}}</view>
+        </picker>
+        <view class="submit_btn" bindtap="submitAdd">完成</view>
+    </view>
+</view>

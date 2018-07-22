@@ -1,0 +1,153 @@
+/**index.wxss**/
+
+page {
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.container {
+  background: #fff;
+  height: 100%;
+  box-sizing: border-box;
+  overflow: auto;
+  padding-bottom: 90px;
+}
+
+.box {
+  width: 100%;
+}
+
+.list {
+  height: 50px;
+  line-height: 50px;
+  font-size: 15px;
+  color: #555555;
+  border-bottom: 1px solid #e3e3e3;
+  overflow: hidden;
+  padding: 0 15px;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.list .td {
+  width: 100%;
+  background: url('http://www.xyys.ltd/miniprogram/icon/right.png') no-repeat right center;
+  background-size: 14px;
+  box-sizing: border-box;
+}
+
+.list text {
+  float: right;
+  font-size: 13px;
+  color: #aeaeae;
+  display: block;
+  padding-right: 15px;
+}
+
+.submit_btn {
+  position: fixed;
+  bottom: 20px;
+  left: 0;
+  right: 0;
+}
+
+.kdc_fix {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  height: 200px;
+  background: #fff;
+  width: 100%;
+  z-index: 999;
+  transition: all .5s;
+  overflow: hidden;
+}
+
+.kdc_fix .title {
+  height: 40px;
+  line-height: 40px;
+  padding-left: 15px;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.kdc_fix .title .yf {
+  float: right;
+  background: #8dc13b;
+  color: #fff;
+  height: 25px;
+  line-height: 25px;
+  width: 60px;
+  margin-top: 6px;
+  margin-right: 15px;
+  text-align: center;
+  font-size: 12px;
+}
+
+.kdc_fix .value {
+  text-align: center;
+  font-size: 16px;
+  padding-bottom: 20px;
+}
+
+.kdcout {
+  bottom: -300px;
+}
+
+.hidetext {
+  margin-top: 50px;
+}
+
+.hidetext image {
+  width: 100%;
+}
+
+.list_tb {
+  width: 70%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.bmi_t {
+  text-align: center;
+  color: #555555;
+}
+
+.bmi {
+  font-size: 30px;
+  text-align: center;
+  color: #555555;
+  margin-top: 5px;
+  font-weight: bold;
+}
+
+.tips {
+  color: #8dc13b;
+  text-align: center;
+  margin: 20px 0 30px
+}
+
+.list_tm {
+  overflow: hidden;
+  background: #eee;
+  height: 28px;
+  line-height: 28px;
+}
+
+.list_tm:nth-child(odd) {
+  background: #acca7d;
+}
+
+.list_tm text {
+  width: 50%;
+  text-align: center;
+  display: block;
+  font-weight: bold;
+  float: left;
+  font-size: 14px;
+  color: #808080;
+}
+
+.images {
+  margin-top: 30px;
+}

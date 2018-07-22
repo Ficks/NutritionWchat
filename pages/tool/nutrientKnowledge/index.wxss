@@ -1,0 +1,109 @@
+/**index.wxss**/
+
+page {
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.container {
+  background: #f3f3f3;
+  height: 100%;
+  box-sizing: border-box;
+  overflow: auto;
+}
+
+.search {
+  width: 100%;
+  height: 38px;
+  background: #fff;
+  position: relative;
+  padding: 0 15px;
+  box-sizing: border-box;
+}
+
+.search_input {
+  width: 100%;
+  padding-right: 65px;
+  box-sizing: border-box;
+  padding-top: 4px;
+}
+
+.search .btn {
+  position: absolute;
+  right: 15px;
+  top: 0;
+  width: 50px;
+  height: 30px;
+  line-height: 30px;
+  font-size: 14px;
+  background: #8dc13b;
+  text-align: center;
+  color: #fff;
+  border-radius: 4px;
+  margin-top: 4px;
+}
+
+.search .btn:active {
+  background: #ebeef3;
+  color: #333;
+}
+
+.search input {
+  width: 100%;
+  background: #ebeef3;
+  height: 30px;
+  color: #a6a4a5;
+  border: 0;
+}
+
+.box {
+  box-sizing: border-box;
+  padding: 0 7px;
+  padding-bottom: 20px;
+}
+
+.list {
+  height: auto;
+  overflow: hidden;
+  margin-top: 10px;
+  background: #fff;
+  border-radius: 6px;
+}
+
+.list .imgs {
+  float: left;
+  width: 120px;
+  padding: 18px;
+  box-sizing: border-box;
+}
+
+.list .imgs image {
+  border: 1px solid #eeeeee;
+}
+
+.list .wz {
+  float: left;
+  max-width: 60%;
+}
+
+.list .h2 {
+  margin-top: 25px;
+  color: #757575;
+  font-size: 16px;
+}
+
+.list .p {
+  margin-top: 5px;
+  color: #a4a4a4;
+  font-size: 14px;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+
+.more {
+  text-align: center;
+  color: #ccc;
+  padding: 20px 0;
+}

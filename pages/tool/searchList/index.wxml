@@ -1,0 +1,25 @@
+<!-- index.wxml -->
+<view class="container">
+    <view class="search">
+        <view class="search_input">
+            <input bindinput="searchInput" placeholder="输入文字搜索" />
+        </view>
+        <view class="btn" bindtap="onSearch">搜索</view>
+    </view>
+    <view class="body-view">
+        <scroll-view scroll-y style="height: {{second_height}}px;" bindscrolltolower="getList">
+            <view class="box">
+                <view class="list" wx:for="{{listArr}}" bindtap="toDetails" data-details-id="{{item.id}}" data-details-src="{{url+item.src}}" data-details-type="{{search.dishesType}}">
+                    <view class="imgs">
+                        <image src="{{url+item.src}}" hidden="{{!item.src}}" mode="widthFix" />
+                    </view>
+                    <view class="wz">
+                        <view class="h2">{{item.title}}</view>
+                        <view class="p">{{item.desc}}</view>
+                    </view>
+                </view>
+                <view class="more">{{search.loadingTxt}}</view>
+            </view>
+        </scroll-view>
+    </view>
+</view>

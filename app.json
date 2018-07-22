@@ -1,0 +1,27 @@
+{
+  "pages": [
+    "pages/login/index",
+    "pages/index/index",
+    "pages/tool/index",
+    "pages/tool/searchList/index",
+    "pages/tool/searchList/details/index",
+    "pages/dietaryRrecords/index",
+    "pages/tool/calorieCalculation/index",
+    "pages/tool/nutrientRequirement/index",
+    "pages/tool/motionEnergyQuery/index",
+    "pages/tool/nutrientKnowledge/index",
+    "pages/tool/nutrientKnowledge/details/index",
+    "pages/tool/weightQuery/index",
+    "pages/allocation/index",
+    "pages/allocation/details/index",
+    "pages/recommend/index",
+    "pages/my/personalData/index"
+
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#8dc13b",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "#fff"
+  }
+}

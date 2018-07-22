@@ -1,0 +1,45 @@
+<!-- index.wxml -->
+<view class="container">
+    <view class="isZcr" hidden="{{isTNB}}">
+        <view class="tlw">
+            <view class="tl">早餐</view>
+        </view>
+        <view class="list_box">
+            <navigator class="list" wx:for="{{listArr[0].dishes}}">
+                <image src="{{url+item.thumbnail}}" mode="widthFix" hidden="!item.thumbnail" />
+                <view class="h2">{{item.name}}</view>
+                <view class="p">{{item.kcal}}kcal({{item.unit}}g)</view>
+            </navigator>
+        </view>
+        <view class="tlw">
+            <view class="tl  tl2">中餐</view>
+        </view>
+        <view class="list_box">
+            <navigator class="list" wx:for="{{listArr[1].dishes}}">
+                <image src="{{url+item.thumbnail}}" mode="widthFix" hidden="!item.thumbnail" />
+                <view class="h2">{{item.name}}</view>
+                <view class="p">{{item.kcal}}kcal({{item.unit}}g)</view>
+            </navigator>
+        </view>
+        <view class="tlw">
+            <view class="tl  tl3">晚餐</view>
+        </view>
+        <view class="list_box">
+            <navigator class="list" wx:for="{{listArr[2].dishes}}">
+                <image src="{{url+item.thumbnail}}" mode="widthFix" hidden="!item.thumbnail" />
+                <view class="h2">{{item.name}}</view>
+                <view class="p">{{item.kcal}}kcal({{item.unit}}g)</view>
+            </navigator>
+        </view>
+    </view>
+    <view class="tnb" hidden="{{!isTNB}}">
+        <view class="tip">温馨提示：本食谱仅作为饮食参考，疾病相关请咨询医生</view>
+        <view class="list_box" wx:for="{{listArr}}">
+            <navigator class="list" wx:for="{{item.dishes}}" wx:for-item="jtem">
+                <image src="{{url+jtem.thumbnail}}" mode="widthFix" hidden="!jtem.thumbnail" />
+                <view class="h2">{{jtem.name}}</view>
+                <view class="p">{{jtem.kcal}}kcal({{jtem.unit}}g)</view>
+            </navigator>
+        </view>
+    </view>
+</view>

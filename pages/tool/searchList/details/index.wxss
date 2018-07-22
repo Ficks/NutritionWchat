@@ -1,0 +1,244 @@
+/**index.wxss**/
+
+page {
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.container {
+  background: #f9f9f9;
+  height: 100%;
+  box-sizing: border-box;
+  overflow: auto;
+}
+
+.details {
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+.details .top {
+  height: auto;
+  overflow: hidden;
+  padding: 15px 0 10px;
+  border-bottom: 1px solid #e9e9e9;
+}
+
+.details .top image {
+  width: 125px;
+  float: left;
+}
+
+.details .top .wz {
+  float: left;
+  padding-left: 15px;
+}
+
+.details .top .wz .h1 {
+  padding-top: 25px;
+  color: #494949;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.details .top .wz .p {
+  font-size: 14px;
+  color: #666666;
+  margin-top: 5px;
+}
+
+.details .bom {
+  padding: 10px 0;
+  line-height: 26px;
+  color: #494949;
+  font-size: 16px;
+}
+
+.tl {
+  text-align: left;
+  background: #cedfb3;
+  font-size: 16px;
+  color: #494949;
+  height: 33px;
+  line-height: 33px;
+  padding: 0 20px;
+  font-weight: bold;
+}
+
+.tl text {
+  float: right;
+  font-weight: 500;
+  color: #666666;
+}
+
+.miaoshu {
+  position: relative;
+  padding: 15px 20px;
+  box-sizing: border-box;
+}
+
+.miaoshu .imgs {
+  width: 34px;
+  float: left;
+  position: absolute;
+  left: 20px;
+  top: 20px;
+}
+
+.miaoshu .wz {
+  text-align: left;
+  padding-left: 50px;
+  box-sizing: border-box;
+  color: #666666;
+  font-size: 14px;
+  padding-right: 10px;
+  line-height: 26px;
+}
+
+.list_box {
+  padding: 10px 20px;
+  box-sizing: border-box;
+  height: auto;
+  overflow: hidden;
+}
+
+.list_box view {
+  line-height: 35px;
+  font-size: 14px;
+  color: #494949;
+}
+
+.list_box text {
+  float: right;
+  color: #666666;
+}
+
+/* 刻度尺 */
+
+/*金额*/
+
+.value {
+  position: relative;
+  text-align: center;
+  height: 40px;
+  font-size: 15px;
+  line-height: 40px;
+  color: #8dc13b;
+  margin-bottom: 20px;
+}
+
+/*单位*/
+
+/*画布*/
+
+#canvas-ruler {
+  width: 1000px;
+  /*height: 80px;*/
+  /*border: 1px solid #ccc;*/
+}
+
+/*游标*/
+
+#canvas-cursor {
+  width: 100%;
+  height: 40px;
+  /*border: 1px solid #cc1;*/
+}
+
+.addfix {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999;
+  padding: 0 17px;
+  box-sizing: border-box;
+  background: #fff;
+  transition: all .5s;
+}
+
+.addfix .tops {
+  text-align: center;
+  position: relative;
+  padding: 15px;
+}
+
+.addfix .tops .date {
+  font-size: 15px;
+  color: #8dc13b;
+}
+
+.addfix .tops .cancel {
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  font-size: 15px;
+  color: #666666;
+}
+
+.addfix .add_details {
+  position: relative;
+  height: auto;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #e9e9e9;
+  overflow: hidden;
+}
+
+.addfix .add_details image {
+  width: 100px;
+  border: 1px solid #ededed;
+  float: left;
+}
+
+.add_details .wz {
+  float: left;
+  padding-left: 15px;
+  box-sizing: border-box;
+}
+
+.add_details .wz .h2 {
+  padding-top: 15px;
+}
+
+.add_details .wz .p {
+  padding-top: 5px;
+}
+
+.add_details .details_cancel {
+  position: absolute;
+  right: 14px;
+  bottom: 15px;
+  font-size: 15px;
+  color: #a5a5a5;
+}
+
+.dw {
+  padding-top: 5px;
+  text-align: center;
+  width: 100%;
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.dw .kcal {
+  position: absolute;
+  left: 0;
+  color: #666666;
+  font-size: 15px;
+  padding-top: 10px;
+}
+
+.hide {
+  bottom: -600px;
+}
+
+.food {
+  text-align: center;
+  margin: 0 auto;
+  width: 120px;
+  line-height: 40px;
+  height: 40px;
+  background: #8dc13b;
+  color: #fff;
+  border-radius: 4px;
+}

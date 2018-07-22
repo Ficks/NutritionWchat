@@ -1,0 +1,14 @@
+<!-- index.wxml -->
+<view class="container">
+    <view class="list" wx:for="{{listArr}}">
+        <view class="left">{{item.datedescc}}</view>
+        <view class="right">
+            <view class="p">消耗{{item.kcal}}kcal</view>
+            <view class="sped_wr">
+                <view class="sped" wx:if="item.proposalkcal==0"></view>
+                <view class="sped" wx:else style="width:{{(item.kcal/item.proposalkcal)*100}}%"></view>
+            </view>
+            <view class="f14">建议消耗{{item.proposalkcal}}kcal</view>
+        </view>
+    </view>
+</view>

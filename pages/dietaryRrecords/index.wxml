@@ -1,0 +1,19 @@
+<!-- index.wxml -->
+<view class="container">
+    <view class="dates">
+        <picker mode="date" value="{{date}}" bindchange="bindDateChange">
+            <view class="date picker">{{date}}</view>
+        </picker>
+    </view>
+    <view class="box">
+        <view class="list" wx:for="{{listArr}}">
+            <view class="tl">{{item.name}}</view>
+            <view class="child">
+                <view class="child_list" wx:for="{{item.detail}}" wx:for-item="jtem">
+                    {{jtem.name}}
+                    <text>{{jtem.kcal}}kcal</text>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

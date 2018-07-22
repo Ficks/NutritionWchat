@@ -1,0 +1,107 @@
+<!-- index.wxml -->
+<view class="container">
+  <view class="top">
+    <view class="location">长沙</view>
+    <view class="search" bindtap="toSearch">搜索食材或菜谱</view>
+    <navigator url="/page/navigate/navigate?title=navigate" class="right"></navigator>
+  </view>
+  <view class="datazs">
+    <view class="left">
+      <view class="box">
+        <view class="ccz" bindtap="signInFn">{{signIn?"已签到":"签到"}}</view>
+      </view>
+    </view>
+    <view class="center">
+      <view class="box">
+        <view class="h2">健康得分</view>
+        <view class="span">{{score}}</view>
+        <navigator url="/page/navigate/navigate?title=navigate">完善个人档案></navigator>
+      </view>
+    </view>
+    <view class="right">
+      <view class="box">
+        <view class="ccz" bindtap="shareFn">分享</view>
+      </view>
+    </view>
+  </view>
+  <view class="jgg_grid">
+    <view class="weui-grids">
+      <view class="weui-grid" wx:for="{{routers}}" wx:key="name">
+        <navigator url="{{item.url}}">
+          <view class="weui-grid__icon">
+            <image src="http://www.xyys.ltd/miniprogram/icon/{{item.icon}}.png" mode="scaleToFill" />
+          </view>
+          <text class="weui-grid__label">{{item.name}}</text>
+        </navigator>
+      </view>
+    </view>
+  </view>
+  <view class="shanshituijian">
+    <view class="box">
+      <view class="tl">
+        膳食推荐
+        <view class="right {{isTNB==true?'none':''}}" bindtap="dietRecommend">换一批</view>
+      </view>
+      <view class="tab_bar  {{isTNB==true?'none':''}}">
+        <view bindtap="tabBarFn" data-val="0" class="list {{tabBar==0?'active':''}}">早餐</view>
+        <view bindtap="tabBarFn" data-val="1" class="list {{tabBar==1?'active':''}}">午餐</view>
+        <view bindtap="tabBarFn" data-val="2" class="list {{tabBar==2?'active':''}}">晚餐</view>
+      </view>
+      <view class="rem_box" bindtap="toDetails">
+        <view class="list_box" wx:for="{{listArr}}" hidden="{{tabBar!=index}}">
+          <view class="list" wx:for="{{item.dishes}}" wx:for-index="jindex" wx:for-item="jtem">
+            {{jtem.name}}
+            <text>{{jtem.kcal}}kcal</text>
+          </view>
+        </view>
+      </view>
+      <navigator class="more  {{isTNB==false?'none':''}}" url="/pages/recommend/index?keyid={{dietRecommendKey}}&isTNB={{isTNB}}">
+        查看更多
+      </navigator>
+    </view>
+  </view>
+  <view class="barbom">
+    <navigator url="" class="homo active">
+      <image src="http://www.xyys.ltd/miniprogram/icon/sy_active.png" mode="scaleToFill"></image>
+      <view>首页</view>
+    </navigator>
+    <view class="add" bindtap="showNav"></view>
+    <navigator url="" class="my">
+      <image src="http://www.xyys.ltd/miniprogram/icon/wd.png" mode="scaleToFill"></image>
+      <view>我的</view>
+    </navigator>
+  </view>
+  <view bindtap="shareHide" class="fixbom  {{share==false?'none':''}}"></view>
+  <view bindtap="shareHide" class="share {{share==false?'none':''}}">
+    <image src="http://tangyu.gotoip11.com/static/images/fx.png" mode="scaleToFill" />
+    <view class="text">
+      <view>请点击右上角</view>
+      <view>将它发送给指定朋友</view>
+      <view>或分享到朋友圈</view>
+    </view>
+  </view>
+  <view bindtap="shareHide" class="fixbom {{navShow==true?'':'none'}}"></view>
+  <view class="navalert {{navShow==true?'':'nhide'}}">
+    <view class="navtol">
+      <navigator url="/pages/tool/searchList/index?dishesType=1&food=1">
+        <view class="title">早餐</view>
+        <text class="p">及加餐</text>
+      </navigator>
+      <navigator url="/pages/tool/searchList/index?dishesType=1&food=2">
+        <view class="title">中餐</view>
+        <text class="p">及加餐</text>
+      </navigator>
+      <navigator url="/pages/tool/searchList/index?dishesType=1&food=3">
+        <view class="title">晚餐</view>
+        <text class="p">及加餐</text>
+      </navigator>
+      <navigator url="">
+        <view class="title">运动</view>
+      </navigator>
+      <navigator url="">
+        <view class="title">饮食记录</view>
+      </navigator>
+    </view>
+    <view class="nav_cancel" bindtap="hideNav"></view>
+  </view>
+</view>
