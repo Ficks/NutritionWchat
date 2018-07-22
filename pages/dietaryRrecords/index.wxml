@@ -6,6 +6,7 @@
         </picker>
     </view>
     <view class="box">
+        <view class="tips" hidden="{{listArr.length!=0}}">当天没有数据记录哦</view>
         <view class="list" wx:for="{{listArr}}">
             <view class="tl">{{item.name}}</view>
             <view class="child">

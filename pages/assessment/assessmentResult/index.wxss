@@ -1,0 +1,77 @@
+/**index.wxss**/
+
+page {
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.container {
+  background: #f9f9f9;
+  height: 100%;
+  box-sizing: border-box;
+  overflow: auto;
+  text-align: center;
+}
+
+.icon {
+  margin: 30px auto 0 auto;
+}
+
+.p {
+  font-size: 16px;
+  color: #666666;
+  margin: 20px 0;
+}
+
+.df {
+  font-size: 40px;
+  color: #545454;
+}
+
+.text {
+  font-size: 14px;
+  color: #959595;
+  margin-top: 5px;
+}
+
+.bom {
+  position: fixed;
+  bottom: 90px;
+  left: 0;
+  right: 0;
+}
+
+.bom .submit_btn {
+  margin: 0 auto;
+  margin-top: 10px;
+}
+
+.back {
+  background: #d1d1d1;
+}
+
+.share {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999;
+}
+
+.share image {
+  float: right;
+  padding-right: 50px;
+  width: 40%;
+}
+
+.share .text {
+  padding-top: 15px;
+}
+
+.share view {
+  text-align: center;
+  clear: both;
+  color: #fff;
+  line-height: 30px;
+  font-size: 16px;
+}

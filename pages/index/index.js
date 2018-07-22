@@ -24,27 +24,27 @@ Page({
       },
       {
         name: '膳食调配',
-        url: '',
+        url: '/pages/allocation/index',
         icon: 'sstp'
       },
       {
         name: '膳食评估',
-        url: '',
+        url: '/pages/assessment/index?type=1',
         icon: 'sspg'
       },
       {
         name: '自我评估',
-        url: '',
+        url: '/pages/assessment/index?type=2',
         icon: 'zwpg'
       },
       {
         name: '走进我们',
-        url: '',
+        url: '/pages/allocation/details/index?type=9',
         icon: 'zjwm'
       },
       {
         name: '合作伙伴',
-        url: '',
+        url: '/pages/allocation/details/index?type=10',
         icon: 'hzhb'
       }
     ]

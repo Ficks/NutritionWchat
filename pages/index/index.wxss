@@ -405,6 +405,11 @@ page {
   transition: all .5s;
 }
 
+.navtol {
+  height: auto;
+  overflow: hidden;
+}
+
 .navtol navigator {
   display: block;
   float: left;

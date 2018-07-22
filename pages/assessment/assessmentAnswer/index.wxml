@@ -1,0 +1,15 @@
+<!-- index.wxml -->
+<view class="container">
+    <view class="list" wx:for="{{listArr}}">
+        <view class="tl">{{index+1}}、{{item.title}}</view>
+        <view class="rlist_box">
+            <radio-group class="radio-group" bindchange="radioChange" data-index="{{index}}">
+                <label class="radio" wx:for="{{item.arr}}" wx:for-index="jindex" wx:for-item="jtem">
+                    <radio value="{{jindex}}" />
+                    {{jtem.title}}
+                </label>
+            </radio-group>
+        </view>
+    </view>
+    <view class="submit_btn" bindtap="submit">提交答案</view>
+</view>

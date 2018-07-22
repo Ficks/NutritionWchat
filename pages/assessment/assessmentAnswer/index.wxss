@@ -1,0 +1,45 @@
+/**index.wxss**/
+
+page {
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.container {
+  background: #f9f9f9;
+  height: 100%;
+  box-sizing: border-box;
+  overflow: auto;
+  padding: 12px;
+}
+
+.list {
+  background: #eeeeee;
+  border-radius: 5px;
+  padding: 15px;
+  box-sizing: border-box;
+  margin-bottom: 15px;
+}
+
+.tl {
+  font-size: 16px;
+  color: #545454;
+}
+
+.rlist_box {
+  height: auto;
+  overflow: hidden;
+  margin-top: 10px;
+}
+
+.rlist_box label {
+  float: left;
+  width: 50%;
+  color: #666666;
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+radio {
+  transform: scale(0.8);
+}

@@ -8,40 +8,27 @@ const app = getApp()
 
 Page({
   data: {
-    yue: 0,
-    kcal: '',
+    date: app.getDate(0),
     kdc: {
       show: false,
-      name: "身高",
-      dw: "cm",
       value: 0,
-      valKey: '',
-    },
-    selectShow: {
-      'sex': false,
-      'llsp': false,
-      'yfxx': false,
-      'yue': false,
     },
     canvasHeight: 80,
-    ajaxData: {
-      Height: 0,
-      Weight: 0,
-      Age: 0,
-      Gender: 0,
-      LaborLevel: 0,
-      PregPeriod: ''
-    },
     maxValue: {
       Height: 210,
       Weight: 150,
-      Age: 110
     },
-    kdcDwArr: {
-      Height: 'cm',
-      Weight: 'kg',
-      Age: '岁'
-    }
+    search: {
+      name: "",
+      pageNum: 1,
+      pageSize: 100
+    },
+    listArr: [],
+    addData: {
+      id: '',
+      min: 0
+    },
+    iten: 0,
   },
   //事件处理函数
   bindViewTap: function () {
@@ -51,6 +38,24 @@ Page({
   },
   onLoad: function () {
     that = this;
+    // 绘制标尺
+    that.drawRuler();
+    // 绘制三角形游标
+    that.drawCursor();
+    this.getList();
+  },
+  getList() {
+    app.$http({
+      url: "/api/HealthyArchive/GetSportsItemList",
+      type: "get",
+      data: this.data.search,
+      success: data => {
+        console.log(data);
+        this.setData({
+          listArr: data.Data.Data
+        })
+      }
+    });
   },
   // 下面是刻度尺
   drawRuler: function () {
@@ -149,27 +154,10 @@ Page({
     deltaX += e.detail.deltaX;
     var value = (-deltaX / 10 + minValue);
     // 数据绑定
-    that.setSelectData(value);
-  },
-  setSelectData(val) {
-    var v = val;
-    if (this.data.kdc.valKey == 'Height') {
-      this.setData({
-        'ajaxData.Height': val,
-      });
-    } else if (this.data.kdc.valKey == 'Weight') {
-      this.setData({
-        'ajaxData.Weight': val,
-      });
-    } else {
-      v = parseInt(val)
-      this.setData({
-        'ajaxData.Age': v,
-      });
-    }
-    this.setData({
-      'kdc.value': v,
-    });
+    that.setData({
+      'kdc.value': parseInt(value),
+      'addData.min': parseInt(value)
+    })
   },
   // 关闭刻度尺
   hideKdcSelect() {
@@ -177,123 +165,40 @@ Page({
       'kdc.show': false,
     })
   },
-  showSelectOpen(e) {
-    var key = e.currentTarget.dataset.key;
-    this.offShowSelect(key, true);
-  },
-  offShowSelect(key, val) {
-    if (key == 'sex') {
-      this.setData({
-        'selectShow.sex': val
-      })
-    } else if (key == 'llsp') {
-      this.setData({
-        'selectShow.llsp': val
-      })
-    } else if (key == 'yue') {
-      this.setData({
-        'selectShow.yue': val,
-        'kdc.show': false,
-      })
-    } else {
-      this.setData({
-        'selectShow.yfxx': val
-      })
-    }
-  },
-  hideSelect(e) {
-    var key = e.currentTarget.dataset.key;
-    this.offShowSelect(key, false);
-  },
-  selectXz(e) {
-    var key = e.currentTarget.dataset.key;
-    var val = e.currentTarget.dataset.val;
-    this.setSelectVal(key, val);
-    this.offShowSelect(key, false);
-  },
-  setSelectVal(key, val) {
-    if (key == 'sex') {
-      this.setData({
-        'ajaxData.Gender': val
-      })
-    } else if (key == 'llsp') {
-      this.setData({
-        'ajaxData.LaborLevel': val
-      })
-    } else if (key == 'yue') {
-      this.setData({
-        yue: val
-      })
-    } else {
-      this.setData({
-        'ajaxData.PregPeriod': val
-      })
-    }
-  },
-  select(e) {
-    var val = e.currentTarget.dataset.op;
-    // 刻度尺选择
-    minValue = 0;
-    maxValue = this.data.maxValue[val];
-    if (val == 'Height') {
-      this.setData({
-        'kdc.name': "身高",
-        'kdc.dw': 'cm'
-      });
-    } else if (val == 'Weight') {
-      this.setData({
-        'kdc.name': '体重',
-        'kdc.dw': 'kg'
-      });
-    } else {
-      this.setData({
-        'kdc.name': '年龄',
-        'kdc.dw': '岁'
-      });
-    }
+  select(d) {
+    var id = d.currentTarget.dataset.id;
+    var iten = d.currentTarget.dataset.iten;
     this.setData({
-      'kdc.valKey': val,
+      'addData.id': id,
       'kdc.show': true,
-      'kdc.dw': this.data.kdcDwArr[val],
-      'kdc.value': this.data.ajaxData[val]
+      iten: iten
     })
-
-
-    // 绘制标尺
-    that.drawRuler();
-    // 绘制三角形游标
-    that.drawCursor();
-    return;
   },
-  search() {
-    for (let i in this.data.ajaxData) {
-      if (this.data.ajaxData[i] == 0) {
-        if (this.data.ajaxData.Gender != '1' || this.data.yue == '') {
-          wx.showToast({
-            title: "请完成选项后查询",
-            icon: 'none'
-          })
-          return;
-        }
-      }
-    }
-
-    var d = JSON.stringify(this.data.ajaxData);
-    d = JSON.parse(d);
-    if (d.Age == 0) {
-      d.Age = this.data.yue / 12;
-    }
-    console.log(d.Age)
+  submitAdd() {
+    console.log(this.data.addData)
     app.$http({
-      url: "/api/HealthyArchive/CalKcalNeed",
+      url: "/api/HealthyArchive/AddTodaySports",
       type: "post",
-      data: JSON.stringify(d),
+      data: JSON.stringify(this.data.addData),
       success: data => {
-        this.setData({
-          kcal: data.Data
-        })
-      },
-      error: error => {}
+        if (data.Code === 20000) {
+          wx.showToast({
+            'title': '添加成功'
+          })
+        }
+        this.hideKdcSelect();
+      }
     });
+  },
+  searchInput(data) {
+    this.setData({
+      'search.name': data.detail.value
+    })
+  },
+  onSearch() {
+    this.setData({
+      'search.pageNum': 1
+    })
+    this.getList();
   }
 })

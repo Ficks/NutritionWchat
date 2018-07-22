@@ -1,0 +1,9 @@
+<!-- index.wxml -->
+<view class="container">
+    <view class="list_md">
+        <navigator class="list" wx:for="{{listArr}}" url="/pages/assessment/assessmentAnswer/index?id={{item.id}}">
+            <view class="tl">{{item.title}}</view>
+            <view class="p">共{{item.length}}题</view>
+        </navigator>
+    </view>
+</view>

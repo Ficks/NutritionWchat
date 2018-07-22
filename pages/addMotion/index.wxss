@@ -1,0 +1,165 @@
+/**index.wxss**/
+
+page {
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.container {
+  background: #fff;
+  height: 100%;
+  box-sizing: border-box;
+  overflow: auto;
+  padding-bottom: 90px;
+}
+
+.box {
+  width: 100%;
+}
+
+.list {
+  height: 50px;
+  line-height: 50px;
+  font-size: 15px;
+  color: #555555;
+  border-bottom: 1px solid #e3e3e3;
+  overflow: hidden;
+  padding: 0 15px;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.list .td {
+  width: 100%;
+  background: url('http://www.xyys.ltd/miniprogram/icon/right.png') no-repeat right center;
+  background-size: 14px;
+  box-sizing: border-box;
+}
+
+.list text {
+  float: right;
+  font-size: 13px;
+  color: #aeaeae;
+  display: block;
+  padding-right: 15px;
+}
+
+.kdc_fix {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  height: 270px;
+  background: #fff;
+  width: 100%;
+  z-index: 999;
+  transition: all .5s;
+  overflow: hidden;
+}
+
+.kdc_fix .title {
+  height: 40px;
+  line-height: 40px;
+  padding-left: 15px;
+  font-size: 16px;
+  text-align: center;
+  color: #8dc13b;
+  position: relative;
+}
+
+.cancel {
+  position: absolute;
+  right: 15px;
+  top: 0;
+  font-size: 15px;
+  color: #666666;
+}
+
+.kdc_fix .title .yf {
+  float: right;
+  background: #8dc13b;
+  color: #fff;
+  height: 25px;
+  line-height: 25px;
+  width: 60px;
+  margin-top: 6px;
+  margin-right: 15px;
+  text-align: center;
+  font-size: 12px;
+}
+
+.kdc_fix .value {
+  position: relative;
+  text-align: center;
+  height: 40px;
+  font-size: 15px;
+  line-height: 40px;
+  color: #8dc13b;
+  margin-bottom: 20px;
+}
+
+.abs {
+  position: absolute;
+  left: 15px;
+  color: #666666;
+  font-size: 15px;
+}
+
+.kdcout {
+  bottom: -300px;
+}
+
+.submit_btn {
+  position: relative;
+  top: -150px;
+}
+
+.search {
+  width: 100%;
+  height: 45px;
+  background: #fff;
+  position: relative;
+  padding: 0 15px;
+  box-sizing: border-box;
+  border-bottom: 1px solid #efefef;
+}
+
+.search_input {
+  width: 100%;
+  padding-right: 65px;
+  box-sizing: border-box;
+  padding-top: 8px;
+}
+
+.search .btn {
+  position: absolute;
+  right: 15px;
+  top: 0;
+  width: 50px;
+  height: 30px;
+  line-height: 30px;
+  font-size: 14px;
+  background: #8dc13b;
+  text-align: center;
+  color: #fff;
+  border-radius: 4px;
+  margin-top: 8px;
+}
+
+.search .btn:active {
+  background: #ebeef3;
+  color: #333;
+}
+
+.search input {
+  width: 100%;
+  background: #ebeef3;
+  height: 30px;
+  color: #a6a4a5;
+  border: 0;
+}
+
+.tips {
+  text-align: center;
+  padding: 30px 0;
+  color: #ccc;
+}

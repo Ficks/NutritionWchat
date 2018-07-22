@@ -10,7 +10,7 @@
 	"compileType": "miniprogram",
 	"libVersion": "1.9.91",
 	"appid": "wx630a4e365a4009b5",
-	"projectname": "Nutrition",
+	"projectname": "NutritionWchat",
 	"isGameTourist": false,
 	"condition": {
 		"search": {

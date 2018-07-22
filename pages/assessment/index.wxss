@@ -1,0 +1,33 @@
+/**index.wxss**/
+
+page {
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.container {
+  background: #f9f9f9;
+  height: 100%;
+  box-sizing: border-box;
+  overflow: auto;
+}
+
+.list {
+  box-sizing: border-box;
+  height: auto;
+  overflow: hidden;
+  padding: 10px 15px;
+  border-bottom: 1px solid #e6e6e6;
+}
+
+.tl {
+  font-size: 16px;
+  color: #555;
+  font-weight: 500;
+  margin-bottom: 7px;
+}
+
+.p {
+  font-size: 13px;
+  color: #aeaeae;
+}

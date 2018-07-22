@@ -2,7 +2,7 @@
 //获取应用实例
 var that;
 var deltaX = 0;
-var minValue = -1;
+var minValue = 0;
 var maxValue = 210;
 const app = getApp()
 

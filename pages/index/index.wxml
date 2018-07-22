@@ -80,7 +80,7 @@
       <view>或分享到朋友圈</view>
     </view>
   </view>
-  <view bindtap="shareHide" class="fixbom {{navShow==true?'':'none'}}"></view>
+  <view bindtap="hideNav" class="fixbom {{navShow==true?'':'none'}}"></view>
   <view class="navalert {{navShow==true?'':'nhide'}}">
     <view class="navtol">
       <navigator url="/pages/tool/searchList/index?dishesType=1&food=1">
@@ -95,10 +95,10 @@
         <view class="title">晚餐</view>
         <text class="p">及加餐</text>
       </navigator>
-      <navigator url="">
+      <navigator url="/pages/addMotion/index">
         <view class="title">运动</view>
       </navigator>
-      <navigator url="">
+      <navigator url="/pages/dietaryRrecords/index">
         <view class="title">饮食记录</view>
       </navigator>
     </view>

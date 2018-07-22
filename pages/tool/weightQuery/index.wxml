@@ -51,12 +51,7 @@
     <!-- 刻度尺 -->
     <view bindtap="hideKdcSelect" class="fixbom  {{kdc.show==false?'none':''}}"></view>
     <view class="kdc_fix  {{kdc.show==false?'kdcout':''}}">
-        <view class="title">
-            选择{{kdc.name}}
-            <view class="yf" bindtap="showSelectOpen" data-key="yue" hidden="{{kdc.valKey!=='Age' || ajaxData.Age>0}}">
-                选择月份
-            </view>
-        </view>
+        <view class="title">选择{{kdc.name}}</view>
         <view class="value">{{kdc.name}} : {{kdc.value}}{{kdc.dw}}</view>
         <view class="kdc">
             <!-- 刻度尺 -->

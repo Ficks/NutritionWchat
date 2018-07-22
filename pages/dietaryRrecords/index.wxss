@@ -60,11 +60,22 @@ page {
 }
 
 .list:nth-child(2) .tl {
-  background: url("http://www.xyys.ltd/miniprogram/icon/wc.png") no-repeat left center;
+  background: url("http://www.xyys.ltd/miniprogram/icon/nav_wc.png") no-repeat left center;
   background-size: 24px;
 }
 
 .list:nth-child(3) .tl {
-  background: url("http://www.xyys.ltd/miniprogram/icon/wwc.png") no-repeat left center;
+  background: url("http://www.xyys.ltd/miniprogram/icon/nav_wwc.png") no-repeat left center;
   background-size: 24px;
+}
+
+.list:nth-child(4) .tl {
+  background: url("http://www.xyys.ltd/miniprogram/icon/nav_yd.png") no-repeat left center;
+  background-size: 24px;
+}
+
+.tips {
+  text-align: center;
+  padding: 30px 0;
+  color: #ccc;
 }

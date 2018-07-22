@@ -14,6 +14,9 @@ Page({
     })
   },
   onLoad: function () {
+    this.getList();
+  },
+  getList() {
     app.$http({
       url: "/api/HealthyArchive/GetMealAndSportsLog",
       type: "get",
@@ -36,5 +39,7 @@ Page({
     this.setData({
       date: e.detail.value
     })
+
+    this.getList();
   },
 })

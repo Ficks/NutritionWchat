@@ -1,0 +1,38 @@
+<!-- index.wxml -->
+<view class="container">
+    <view class="search">
+        <view class="search_input">
+            <input bindinput="searchInput" placeholder="输入文字搜索运动" />
+        </view>
+        <view class="btn" bindtap="onSearch">搜索</view>
+    </view>
+    <view class="box">
+        <view class="tips" hidden="{{listArr.length!=0}}">没有查询到该运动哦</view>
+        <view class="list" wx:for="{{listArr}}" bindtap="select" data-id="{{item.id}}" data-iten="{{item.iten}}">
+            <view class="td">
+                {{item.name}}
+                <text>运动强度：{{item.iten}}</text>
+            </view>
+        </view>
+    </view>
+    <!-- 刻度尺 -->
+    <view bindtap="hideKdcSelect" class="fixbom  {{kdc.show==false?'none':''}}"></view>
+    <view class="kdc_fix  {{kdc.show==false?'kdcout':''}}">
+        <view class="title">
+            {{date}}
+            <text class="cancel" bindtap="hideKdcSelect">取消</text>
+        </view>
+        <view class="value">
+            {{kdc.value}}min
+            <text class="abs">运动强度{{iten}}</text>
+        </view>
+        <view class="kdc">
+            <!-- 刻度尺 -->
+            <scroll-view scroll-x="true" bindscroll="bindscroll" scroll-left="{{scrollLeft}}">
+                <canvas canvas-id="canvas-ruler" id="canvas-ruler" style="height: {{canvasHeight}}px; width: {{canvasWidth}}px;"></canvas>
+            </scroll-view>
+            <canvas canvas-id="canvas-cursor" id="canvas-cursor"></canvas>
+        </view>
+        <view class="submit_btn" bindtap="submitAdd">完成</view>
+    </view>
+</view>

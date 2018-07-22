@@ -1,6 +1,6 @@
 var that;
 var deltaX = 0;
-var minValue = -1;
+var minValue = 0;
 var app = getApp();
 Page({
   data: {
@@ -129,7 +129,7 @@ Page({
             // })
           } else {
             wx.navigateTo({
-              url: "pages/dietaryRrecords/index?back=1"
+              url: "/pages/dietaryRrecords/index?back=1"
             })
           }
         }
