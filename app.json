@@ -19,8 +19,8 @@
     "pages/assessment/index",
     "pages/assessment/assessmentAnswer/index",
     "pages/assessment/assessmentResult/index",
+    "pages/my/index",
     "pages/my/personalData/index"
-
   ],
   "window": {
     "backgroundTextStyle": "light",

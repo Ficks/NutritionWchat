@@ -61,12 +61,12 @@
     </view>
   </view>
   <view class="barbom">
-    <navigator url="" class="homo active">
+    <navigator url="/pages/index/index" class="homo active">
       <image src="http://www.xyys.ltd/miniprogram/icon/sy_active.png" mode="scaleToFill"></image>
       <view>首页</view>
     </navigator>
     <view class="add" bindtap="showNav"></view>
-    <navigator url="" class="my">
+    <navigator url="/pages/my/index" class="my">
       <image src="http://www.xyys.ltd/miniprogram/icon/wd.png" mode="scaleToFill"></image>
       <view>我的</view>
     </navigator>

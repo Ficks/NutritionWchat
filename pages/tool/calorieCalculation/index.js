@@ -268,7 +268,7 @@ Page({
   search() {
     for (let i in this.data.ajaxData) {
       if (this.data.ajaxData[i] == 0) {
-        if (this.data.ajaxData.Gender != '1' || this.data.yue == '') {
+        if (this.data.ajaxData.Gender != '1' || (this.data.yue == '' && this.data.ajaxData.Age == 0)) {
           wx.showToast({
             title: "请完成选项后查询",
             icon: 'none'
@@ -283,17 +283,21 @@ Page({
     if (d.Age == 0) {
       d.Age = this.data.yue / 12;
     }
+    if (d.Gender == 1) {
+      d.PregPeriod = 0;
+    }
     console.log(d.Age)
     app.$http({
       url: "/api/HealthyArchive/CalKcalNeed",
       type: "post",
       data: JSON.stringify(d),
       success: data => {
+        console.log(data);
         this.setData({
           kcal: data.Data
         })
       },
-      error: error => {}
+      error: error => { }
     });
   }
 })
