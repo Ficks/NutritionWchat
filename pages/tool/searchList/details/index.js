@@ -13,11 +13,13 @@ Page({
     type: '',
     food: '',
     foodName: '',
+    gmsw: false,
     foodArr: ['早餐', '中餐', '晚餐'],
     details: {},
     api: '/api/HealthyDiet/AddToTodaysDiet',
     ajaxData: {},
   },
+
   onLoad: function (options) {
     this.details(options);
     that = this;
@@ -28,20 +30,36 @@ Page({
   },
   details(data) {
     var title = '';
-    if (data.type == 1) {
-      title = '食谱大全';
-    } else if (data.type == 2) {
-      title = '其他食品';
-    } else if (data.type == 3) {
-      title = '食材大全';
-    } else {
+    this.setData({
+      'ajaxData.id': data.id
+    })
+    if (data.gmsw == 'true') {
+      this.setData({
+        gmsw: true
+      })
       title = '过敏食物添加';
       this.setData({
         api: '/api/HealthyDiet/AddToAllergyFood',
         ajaxData: {
-          id: this.data.details.id
+          id: data.id
         }
       })
+    } else {
+      if (data.type == 1) {
+        title = '食谱大全';
+      } else if (data.type == 2) {
+        title = '其他食品';
+      } else if (data.type == 3) {
+        title = '食材大全';
+      } else {
+        title = '过敏食物添加';
+        this.setData({
+          api: '/api/HealthyDiet/AddToAllergyFood',
+          ajaxData: {
+            id: data.id
+          }
+        })
+      }
     }
     wx.setNavigationBarTitle({
       title: title
@@ -85,7 +103,7 @@ Page({
   },
   // 提交
   submitAdd() {
-    if (this.data.type !== '') {
+    if (!this.data.gmsw) {
       if (this.data.food == '') {
         wx.showToast({
           title: '请选择餐次',
@@ -102,7 +120,7 @@ Page({
       }
       this.setData({
         ajaxData: {
-          id: this.data.details.id,
+          id: this.data.ajaxData.id,
           grams: this.data.value,
           type: this.data.food
         }
@@ -111,11 +129,14 @@ Page({
     wx.showLoading({
       title: "添加中"
     })
+
+    console.log(this.data.ajaxData)
     app.$http({
       url: this.data.api,
       type: "post",
       data: JSON.stringify(this.data.ajaxData),
       success: data => {
+        console.log(data)
         wx.hideLoading();
         this.hideAdd();
         if (data.Code === 20000) {
@@ -123,11 +144,13 @@ Page({
           wx.showToast({
             title: '添加成功'
           });
-          if (this.data.type == '') {
-            // wx.navigateTo({
-            //   url: "pages/dietaryRrecords/index?back=1"
-            // })
+          if (this.data.gmsw) {
+            wx.navigateBack({
+              delta: 2
+            })
+            console.log('gogogo1111')
           } else {
+            console.log('gogogo')
             wx.navigateTo({
               url: "/pages/dietaryRrecords/index?back=1"
             })
@@ -137,7 +160,7 @@ Page({
     });
   },
   showAdd() {
-    if (this.data.type == '') {
+    if (this.data.gmsw) {
       this.submitAdd();
       return;
     }

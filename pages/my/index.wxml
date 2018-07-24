@@ -1,32 +1,24 @@
 <!-- index.wxml -->
 <view class="container">
-
-<view class="top">
+  <view class="top">
     <view class="tx">
-        <image src="{{userInfo.headurl}}" mode="widthFix"></image>
+      <image src="{{userInfo.headurl}}" mode="widthFix"></image>
     </view>
     <view class="info">
-        <view class="name">{{userInfo.nickname}}</view>
-        <view class="sexage">男 27岁</view>
+      <view class="name">{{userInfo.nickname}}</view>
+      <view class="sexage">男 27岁</view>
     </view>
-</view>
-
-
-<view class="box">
-    <navigator url="">今日档案</navigator>
-    <navigator url="">个人档案</navigator>
-    <navigator url="">我的资料</navigator>
-</view>
-
-<view class="box">
+  </view>
+  <view class="box">
+    <navigator url="/pages/my/todayArchives/index">今日档案</navigator>
+    <navigator url="/pages/my/personalFiles/index">个人档案</navigator>
+    <navigator url="/pages/my/personalData/index">我的资料</navigator>
+  </view>
+  <view class="box">
     <navigator url="/pages/allocation/details/index?type=9">走进我们</navigator>
     <navigator url="/pages/allocation/details/index?type=10">合作伙伴</navigator>
-</view>
-
-
-
-
-<view class="barbom">
+  </view>
+  <view class="barbom">
     <navigator url="/pages/index/index" class="homo active">
       <image src="http://www.xyys.ltd/miniprogram/icon/sy.png" mode="scaleToFill"></image>
       <view>首页</view>
@@ -37,7 +29,7 @@
       <view>我的</view>
     </navigator>
   </view>
-<view bindtap="hideNav" class="fixbom {{navShow==true?'':'none'}}"></view>
+  <view bindtap="hideNav" class="fixbom {{navShow==true?'':'none'}}"></view>
   <view class="navalert {{navShow==true?'':'nhide'}}">
     <view class="navtol">
       <navigator url="/pages/tool/searchList/index?dishesType=1&food=1">

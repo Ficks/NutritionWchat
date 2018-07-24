@@ -1,0 +1,36 @@
+<!-- index.wxml -->
+<view class="container">
+    <!-- <view class="date">{{date}}</view> -->
+    <view class="box">
+        <view class="list">
+            <view class="name">营养素</view>
+            <view class="jdt"></view>
+            <view class="rl">预计所需</view>
+        </view>
+        <view class="list" wx:for="{{listArr}}">
+            <view class="name">{{item.name}}</view>
+            <view class="jdt">
+                <view class="sped {{item.bfb>100?'over':''}}" style="width:{{item.bfb}}%">
+                    <text wx:if="{{item.bfb<100}}">{{item.bfb>25?item.spedVal+item.unit:''}}</text>
+                    <text wx:else>{{item.bfbc}}</text>
+                </view>
+            </view>
+            <view class="rl">{{item.totalVal}}{{item.unit}}</view>
+        </view>
+    </view>
+    <view class="h2">各餐摄入组成</view>
+    <view class="box zcw">
+        <view class="list">
+            <view class="name">餐次</view>
+            <view class="jdt"></view>
+            <view class="rl">参考比例</view>
+        </view>
+        <view class="list" wx:for="{{mealArr}}">
+            <view class="name">{{item.type==1?"早餐":item.type==2?"午餐":"晚餐"}}</view>
+            <view class="jdt">
+                <view class="sped {{item.bfb>90?'over':''}}" style="width:{{item.bfb}}%"></view>
+            </view>
+            <view class="rl">{{item.proposalratio}}</view>
+        </view>
+    </view>
+</view>

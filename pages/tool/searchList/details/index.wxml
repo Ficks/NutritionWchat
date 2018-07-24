@@ -40,7 +40,7 @@
             <text>{{item.value+item.unit}}</text>
         </view>
     </view>
-    <view class="submit_btn" bindtap="showAdd">{{type!=''?'添加到今日饮食':'添加到过敏食物'}}</view>
+    <view class="submit_btn" bindtap="showAdd">{{!gmsw?'添加到今日饮食':'添加到过敏食物'}}</view>
     <view bindtap="hideAdd" class="fixbom  {{show==false?'none':''}}"></view>
     <view class="addfix  {{show==false?'hide':''}}">
         <view class="tops">

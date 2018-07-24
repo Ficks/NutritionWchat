@@ -20,6 +20,8 @@
     "pages/assessment/assessmentAnswer/index",
     "pages/assessment/assessmentResult/index",
     "pages/my/index",
+    "pages/my/todayArchives/index",
+    "pages/my/personalFiles/index",
     "pages/my/personalData/index"
   ],
   "window": {

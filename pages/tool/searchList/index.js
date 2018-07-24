@@ -6,6 +6,7 @@ Page({
   data: {
     loading: false,
     food: '',
+    gmsw: false,
     search: {
       loading: false,
       loadingTxt: "滑动加载更多",
@@ -29,6 +30,33 @@ Page({
       'search.dishesType': parseInt(data.dishesType) || "",
       food: parseInt(data.food) || "",
     })
+    console.log(this.data.search)
+    if (data.gmsw) {
+      this.setData({
+        gmsw: true
+      })
+      wx.setNavigationBarTitle({
+        title: "添加过敏食物"
+      })
+    } else {
+      if (data.dishesType == 1) {
+        wx.setNavigationBarTitle({
+          title: "菜谱检索"
+        })
+      } else if (data.dishesType == 2) {
+        wx.setNavigationBarTitle({
+          title: "其他食品检索"
+        })
+      } else if (data.dishesType == 3) {
+        wx.setNavigationBarTitle({
+          title: "食材检索"
+        })
+      } else {
+        wx.setNavigationBarTitle({
+          title: "过敏食物"
+        })
+      }
+    }
     this.getXtInfo();
     this.getList(true);
   },
@@ -66,7 +94,7 @@ Page({
   toDetails(data) {
     var d = data.currentTarget.dataset;
     wx.navigateTo({
-      url: `/pages/tool/searchList/details/index?id=${d.detailsId}&src=${d.detailsSrc}&type=${d.detailsType}&food=${this.data.food}`
+      url: `/pages/tool/searchList/details/index?id=${d.detailsId}&src=${d.detailsSrc}&type=${d.detailsType}&food=${this.data.food}&gmsw=${this.data.gmsw}`
     })
   },
   getList(time) {

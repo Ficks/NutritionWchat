@@ -1,2 +1,319 @@
 <!-- index.wxml -->
-<view class="container"></view>
+<view class="container">
+    <view class="box">
+        <view class="list">
+            <view class="td">
+                姓名
+                <input type="text" data-key="name" value="{{ajaxData.name}}" bindinput="editInput" placeholder-class="dsss" placeholder="请输入姓名" />
+            </view>
+        </view>
+        <view class="list" bindtap="showSelectOpen" data-key="sexvalue">
+            <view class="td">
+                性别
+                <text>{{ajaxData.sexvalue===0?'男':ajaxData.sexvalue===1?"女":"请选择"}}</text>
+            </view>
+        </view>
+        <view class="list" bindtap="select" data-op="age">
+            <view class="td">
+                年龄
+                <text wx:if="{{yue==0}}">{{ajaxData.age==0?'请选择':ajaxData.age+'岁'}}</text>
+                <text wx:if="{{yue!=0}}">{{yue}}个月</text>
+            </view>
+        </view>
+        <view class="list" bindtap="select" data-op="height">
+            <view class="td">
+                身高
+                <text>{{ajaxData.height==0?'请选择':ajaxData.height+'cm'}}</text>
+            </view>
+        </view>
+        <view class="list" bindtap="select" data-op="weight">
+            <view class="td">
+                体重
+                <text>{{ajaxData.weight==0?'请选择':ajaxData.weight+'kg'}}</text>
+            </view>
+        </view>
+        <view class="list" bindtap="showSelectOpen" data-key="nation">
+            <view class="td">
+                民族
+                <text>{{ajaxData.nation || '请选择'}}</text>
+            </view>
+        </view>
+    </view>
+    <view class="box">
+        <view class="list bls">
+            <view class="td">
+                病例史
+                <text>请选择</text>
+            </view>
+        </view>
+        <view class="list" bindtap="showSelectOpen" data-key="hyzt">
+            <view class="td">
+                孕妇选项
+                <text wx:if="{{!ajaxData.hyzt && ajaxData.hyzt!=0}}">请选择</text>
+                <text wx:if="{{ajaxData.hyzt===0}}">否</text>
+                <text wx:if="{{ajaxData.hyzt===1}}">早孕期</text>
+                <text wx:if="{{ajaxData.hyzt===2}}">中孕期</text>
+                <text wx:if="{{ajaxData.hyzt===3}}">晚孕期</text>
+                <text wx:if="{{ajaxData.hyzt===4}}">哺育期</text>
+            </view>
+        </view>
+        <view class="list" bindtap="showSelectOpen" data-key="ysxhid">
+            <view class="td">
+                饮食喜好
+                <text wx:if="{{ajaxData.ysxhid===''}}">请选择</text>
+                <text wx:if="{{ajaxData.ysxhid===1}}">酸</text>
+                <text wx:if="{{ajaxData.ysxhid===2}}">甜</text>
+                <text wx:if="{{ajaxData.ysxhid===3}}">苦</text>
+                <text wx:if="{{ajaxData.ysxhid===4}}">辣</text>
+                <text wx:if="{{ajaxData.ysxhid===5}}">咸</text>
+            </view>
+        </view>
+        <view class="list" bindtap="showSelectOpen" data-key="llspid">
+            <view class="td">
+                劳力水平
+                <text wx:if="{{ajaxData.llspid===''}}">请选择</text>
+                <text wx:if="{{ajaxData.llspid===1}}">轻度</text>
+                <text wx:if="{{ajaxData.llspid===2}}">中度</text>
+                <text wx:if="{{ajaxData.llspid===3}}">重度</text>
+            </view>
+        </view>
+        <view class="list">
+            <view class="td" bindtap="goGmsw">
+                过敏食物
+                <text>去添加</text>
+            </view>
+        </view>
+    </view>
+    <div class="box tl_box">
+        <view class="tls">过敏食物</view>
+        <view class="tips" wx:if="{{ajaxData.alleryarr.length==0}}">暂无添加过敏食物</view>
+        <view class="tl_box_list" bindtap="removeGmsw" wx:for="{{ajaxData.alleryarr}}" data-id="{{item.id}}" data-name="{{item.name}}">
+            {{item.name}}
+        </view>
+    </div>
+    <div class="box tl_box">
+        <view class="tls">选填项</view>
+        <view class="list" bindtap="showSelectOpen" data-key="occupation">
+            <view class="td">
+                职业
+                <text>{{ajaxData.occupation || '请选择'}}</text>
+            </view>
+        </view>
+        <view class="list" bindtap="showSelectOpen" data-key="marriage">
+            <view class="td">
+                婚姻状况
+                <text>{{ajaxData.marriage || '请选择'}}</text>
+            </view>
+        </view>
+        <view class="list" bindtap="showSelectOpen" data-key="education">
+            <view class="td">
+                文化程度
+                <text>{{ajaxData.education || '请选择'}}</text>
+            </view>
+        </view>
+        <view class="list" bindtap="showSelectOpen" data-key="familyincome">
+            <view class="td">
+                家庭年收入
+                <text>{{ajaxData.familyincome || '请选择'}}</text>
+            </view>
+        </view>
+    </div>
+    <div class="box tl_box">
+        <view class="tls">合伙人及退款</view>
+        <view class="list">
+            <view class="td">
+                开户行
+                <input type="text" data-key="khh" value="{{ajaxData.khh}}" bindinput="editInput" placeholder-class="dsss" placeholder="请输入开户行" />
+            </view>
+        </view>
+        <view class="list">
+            <view class="td">
+                开户人
+                <input type="text" data-key="khr" value="{{ajaxData.khr}}" bindinput="editInput" placeholder-class="dsss" placeholder="请输入开户人" />
+            </view>
+        </view>
+        <view class="list">
+            <view class="td">
+                银行账号
+                <input type="text" data-key="yhzh" value="{{ajaxData.yhzh}}" bindinput="editInput" placeholder-class="dsss" placeholder="请输入银行账号" />
+            </view>
+        </view>
+    </div>
+    <view class="submit_btn" bindtap="submitEdit">保存并返回</view>
+    <!-- 刻度尺 -->
+    <view bindtap="hideKdcSelect" class="fixbom  {{kdc.show==false?'none':''}}"></view>
+    <view class="kdc_fix  {{kdc.show==false?'kdcout':''}}">
+        <view class="title">
+            选择{{kdc.name}}
+            <view class="yf" bindtap="showSelectOpen" data-key="yue" hidden="{{kdc.valKey!=='age' || ajaxData.age>0}}">
+                选择月份
+            </view>
+        </view>
+        <view class="value">{{kdc.name}} : {{kdc.value}}{{kdc.dw}}</view>
+        <view class="kdc">
+            <!-- 刻度尺 -->
+            <scroll-view scroll-x="true" bindscroll="bindscroll" scroll-left="{{scrollLeft}}">
+                <canvas canvas-id="canvas-ruler" id="canvas-ruler" style="height: {{canvasHeight}}px; width: {{canvasWidth}}px;"></canvas>
+            </scroll-view>
+            <canvas canvas-id="canvas-cursor" id="canvas-cursor"></canvas>
+        </view>
+    </view>
+    <!-- 性别 -->
+    <view bindtap="hideSelect" data-key="sexvalue" class="fixbom  {{selectShow.sexvalue==false?'none':''}}"></view>
+    <view class="kdc_fix autoheight {{selectShow.sexvalue==false?'kdcout':''}}">
+        <view class="title">选择性别</view>
+        <view class="fix_listbox">
+            <view class="fix_list" bindtap="selectXz" data-key="sexvalue" data-val="0">男</view>
+            <view class="fix_list" bindtap="selectXz" data-key="sexvalue" data-val="1">女</view>
+        </view>
+    </view>
+    <view bindtap="hideSelect" data-key="nation" class="fixbom  {{selectShow.nation==false?'none':''}}"></view>
+    <view class="kdc_fix autoheight {{selectShow.nation==false?'kdcout':''}}">
+        <view class="title">选择民族</view>
+        <view class="fix_listbox">
+            <view class="fix_list" bindtap="selectXz" data-key="nation" data-val="汉族">汉族</view>
+            <view class="fix_list" bindtap="selectXz" data-key="nation" data-val="其他">其他</view>
+        </view>
+    </view>
+    <view bindtap="hideSelect" data-key="ysxhid" class="fixbom  {{selectShow.ysxhid==false?'none':''}}"></view>
+    <view class="kdc_fix autoheight {{selectShow.ysxhid==false?'kdcout':''}}">
+        <view class="title">选择饮食喜好</view>
+        <view class="fix_listbox">
+            <view class="fix_list" bindtap="selectXz" data-key="ysxhid" data-val="1">酸</view>
+            <view class="fix_list" bindtap="selectXz" data-key="ysxhid" data-val="2">甜</view>
+            <view class="fix_list" bindtap="selectXz" data-key="ysxhid" data-val="3">苦</view>
+            <view class="fix_list" bindtap="selectXz" data-key="ysxhid" data-val="4">辣</view>
+            <view class="fix_list" bindtap="selectXz" data-key="ysxhid" data-val="5">咸</view>
+        </view>
+    </view>
+    <view bindtap="hideSelect" data-key="llspid" class="fixbom  {{selectShow.llspid==false?'none':''}}"></view>
+    <view class="kdc_fix autoheight {{selectShow.llspid==false?'kdcout':''}}">
+        <view class="title">选择劳力水平</view>
+        <view class="fix_listbox">
+            <view class="fix_list" bindtap="selectXz" data-key="llspid" data-val="1">轻度</view>
+            <view class="fix_list" bindtap="selectXz" data-key="llspid" data-val="2">中度</view>
+            <view class="fix_list" bindtap="selectXz" data-key="llspid" data-val="3">重度</view>
+        </view>
+    </view>
+    <view bindtap="hideSelect" data-key="hyzt" class="fixbom  {{selectShow.hyzt==false?'none':''}}"></view>
+    <view class="kdc_fix autoheight {{selectShow.hyzt==false?'kdcout':''}}">
+        <view class="title">选择孕妇选项</view>
+        <view class="fix_listbox">
+            <view class="fix_list" bindtap="selectXz" data-key="hyzt" data-val="0">否</view>
+            <view class="fix_list" bindtap="selectXz" data-key="hyzt" data-val="1">早孕期</view>
+            <view class="fix_list" bindtap="selectXz" data-key="hyzt" data-val="2">中孕期</view>
+            <view class="fix_list" bindtap="selectXz" data-key="hyzt" data-val="3">晚孕期</view>
+            <view class="fix_list" bindtap="selectXz" data-key="hyzt" data-val="4">哺育期</view>
+        </view>
+    </view>
+    <view bindtap="hideSelect" data-key="occupation" class="fixbom  {{selectShow.occupation==false?'none':''}}"></view>
+    <view class="kdc_fix autoheight {{selectShow.occupation==false?'kdcout':''}}">
+        <view class="title">选择职业</view>
+        <view class="fix_listbox">
+            <view class="fix_list" bindtap="selectXz" data-key="occupation" data-val="国家公务员">
+                国家公务员
+            </view>
+            <view class="fix_list" bindtap="selectXz" data-key="occupation" data-val="专业技术人员">
+                专业技术人员
+            </view>
+            <view class="fix_list" bindtap="selectXz" data-key="occupation" data-val="职员">职员</view>
+            <view class="fix_list" bindtap="selectXz" data-key="occupation" data-val="企业管理者">
+                企业管理者
+            </view>
+            <view class="fix_list" bindtap="selectXz" data-key="occupation" data-val="工人">工人</view>
+            <view class="fix_list" bindtap="selectXz" data-key="occupation" data-val="农民">农民</view>
+            <view class="fix_list" bindtap="selectXz" data-key="occupation" data-val="学生">学生</view>
+            <view class="fix_list" bindtap="selectXz" data-key="occupation" data-val="现役军人">
+                现役军人
+            </view>
+            <view class="fix_list" bindtap="selectXz" data-key="occupation" data-val="个体经营者">
+                个体经营者
+            </view>
+            <view class="fix_list" bindtap="selectXz" data-key="occupation" data-val="无业人员">
+                无业人员
+            </view>
+            <view class="fix_list" bindtap="selectXz" data-key="occupation" data-val="退（离）休人员">
+                退（离）休人员
+            </view>
+            <view class="fix_list" bindtap="selectXz" data-key="occupation" data-val="其他">其他</view>
+        </view>
+    </view>
+    <view bindtap="hideSelect" data-key="marriage" class="fixbom  {{selectShow.marriage==false?'none':''}}"></view>
+    <view class="kdc_fix autoheight {{selectShow.marriage==false?'kdcout':''}}">
+        <view class="title">选择婚姻</view>
+        <view class="fix_listbox">
+            <view class="fix_list" bindtap="selectXz" data-key="marriage" data-val="已婚一起生活">
+                已婚一起生活
+            </view>
+            <view class="fix_list" bindtap="selectXz" data-key="marriage" data-val="离异">离异</view>
+            <view class="fix_list" bindtap="selectXz" data-key="marriage" data-val="已婚分居一月以上">
+                已婚分居一月以上
+            </view>
+            <view class="fix_list" bindtap="selectXz" data-key="marriage" data-val="鳏/寡居">
+                鳏/寡居
+            </view>
+            <view class="fix_list" bindtap="selectXz" data-key="marriage" data-val="单身，从未婚">
+                单身，从未婚
+            </view>
+            <view class="fix_list" bindtap="selectXz" data-key="marriage" data-val="未婚同居">
+                未婚同居
+            </view>
+            <view class="fix_list" bindtap="selectXz" data-key="marriage" data-val="其他">其他</view>
+        </view>
+    </view>
+    <view bindtap="hideSelect" data-key="education" class="fixbom  {{selectShow.education==false?'none':''}}"></view>
+    <view class="kdc_fix autoheight {{selectShow.education==false?'kdcout':''}}">
+        <view class="title">选择教育</view>
+        <view class="fix_listbox">
+            <view class="fix_list" bindtap="selectXz" data-key="education" data-val="小学及以下">
+                小学及以下
+            </view>
+            <view class="fix_list" bindtap="selectXz" data-key="education" data-val="初中">初中</view>
+            <view class="fix_list" bindtap="selectXz" data-key="education" data-val="高中/中专/高职">
+                高中/中专/高职
+            </view>
+            <view class="fix_list" bindtap="selectXz" data-key="education" data-val="大专/大学">
+                大专/大学
+            </view>
+            <view class="fix_list" bindtap="selectXz" data-key="education" data-val="研究生及以上">
+                研究生及以上
+            </view>
+        </view>
+    </view>
+    <view bindtap="hideSelect" data-key="familyincome" class="fixbom  {{selectShow.familyincome==false?'none':''}}"></view>
+    <view class="kdc_fix autoheight {{selectShow.familyincome==false?'kdcout':''}}">
+        <view class="title">选择收入</view>
+        <view class="fix_listbox">
+            <view class="fix_list" bindtap="selectXz" data-key="familyincome" data-val="3万以下">
+                3万以下
+            </view>
+            <view class="fix_list" bindtap="selectXz" data-key="familyincome" data-val="3-8">
+                3-8
+            </view>
+            <view class="fix_list" bindtap="selectXz" data-key="familyincome" data-val="8-15">
+                8-15
+            </view>
+            <view class="fix_list" bindtap="selectXz" data-key="familyincome" data-val="15-30">
+                15-30
+            </view>
+            <view class="fix_list" bindtap="selectXz" data-key="familyincome" data-val="30-50">
+                30-50
+            </view>
+            <view class="fix_list" bindtap="selectXz" data-key="familyincome" data-val="50-100">
+                50-100
+            </view>
+            <view class="fix_list" bindtap="selectXz" data-key="familyincome" data-val="100万以上">
+                100万以上
+            </view>
+        </view>
+    </view>
+    <view bindtap="hideSelect" data-key="yue" class="fixbom yuefixbom  {{selectShow.yue==false?'none':''}}"></view>
+    <view class="kdc_fix autoheight {{selectShow.yue==false?'yueout':''}}">
+        <view class="title">选择月份</view>
+        <view class="fix_listbox">
+            <view class="fix_list" wx:for="{{11}}" bindtap="selectXz" data-key="yue" data-val="{{item+1}}">
+                {{item+1}}
+            </view>
+        </view>
+    </view>
+</view>

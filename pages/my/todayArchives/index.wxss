@@ -1,0 +1,88 @@
+/**index.wxss**/
+
+page {
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.container {
+  background: #f9f9f9;
+  height: 100%;
+  box-sizing: border-box;
+  overflow: auto;
+}
+
+.box {
+  margin-top: 30px;
+  padding: 0 20px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.list {
+  height: auto;
+  overflow: hidden;
+  width: 100%;
+  box-sizing: border-box;
+  color: #484848;
+  margin-top: 15px;
+}
+
+.name {
+  float: left;
+  width: 30%;
+}
+
+.jdt {
+  width: 40%;
+  float: left;
+  min-height: 20px;
+  background: #fff;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.rl {
+  float: left;
+  width: 30%;
+  text-align: right;
+}
+
+.h2 {
+  text-align: center;
+  color: #8dc13b;
+  font-size: 16px;
+  position: relative;
+  top: 20px;
+  margin-top: 10px;
+}
+
+.box .list:nth-child(1) {
+  color: #8dc13b;
+}
+
+.box .list:nth-child(1) .jdt {
+  background: none;
+}
+
+.sped {
+  background: #8dc13b;
+  height: 20px;
+  border-radius: 4px;
+  text-align: center;
+  color: #fff;
+  font-size: 12px;
+  max-width: 100%;
+}
+
+.sped text {
+  font-size: 12px;
+}
+
+.over {
+  background: rgba(255, 48, 0, 1);
+}
+
+.zcw {
+  margin-bottom: 50px;
+}
