@@ -5,7 +5,8 @@ const app = getApp()
 Page({
   data: {
     navShow: false,
-    userInfo: null
+    userInfo: null,
+    d: {}
   },
   //事件处理函数
   bindViewTap: function () {
@@ -17,7 +18,21 @@ Page({
     this.setData({
       userInfo: app.globalData.userInfo
     })
-    console.log(this.data.userInfo)
+
+    app.$http({
+      url: '/api/HealthyArchive/GetPersonalHealthyArchive',
+      type: "get",
+      data: {},
+      success: data => {
+        //成功的处理
+        this.setData({
+          d: data.Data
+        })
+      },
+      error: function () {
+        //错误处理
+      }
+    });
   },
   hideNav() {
     // 关闭

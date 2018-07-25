@@ -145,10 +145,15 @@ Page({
             title: '添加成功'
           });
           if (this.data.gmsw) {
-            wx.navigateBack({
-              delta: 2
+            wx.setStorage({
+              key: 'gmsw',
+              data: true,
+              success() {
+                wx.navigateBack({
+                  delta: 2
+                });
+              }
             })
-            console.log('gogogo1111')
           } else {
             console.log('gogogo')
             wx.navigateTo({

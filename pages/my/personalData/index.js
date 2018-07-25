@@ -46,6 +46,7 @@ Page({
       education: '', //教育
       familyincome: '', //收入
       jbsid: '',
+      jbsname: '',
       ysxhid: '',
       llspid: '',
 
@@ -71,7 +72,40 @@ Page({
     })
   },
   onShow: function () {
-    this.onLoad();
+    var that = this;
+    // 如果是从疾病史返回来的
+    wx.getStorage({
+      key: 'disease',
+      success(res) {
+        if (res.data.state) {
+          that.setData({
+            'ajaxData.jbsid': res.data.id,
+            'ajaxData.jbsname': res.data.name
+          })
+          wx.setStorage({
+            key: 'disease',
+            data: {
+              id: '',
+              name: '',
+              state: false
+            }
+          })
+        }
+      }
+    })
+    // 如果是从疾病史返回来的
+    wx.getStorage({
+      key: 'gmsw',
+      success(res) {
+        if (res.data) {
+          that.getUserInfo();
+          wx.setStorage({
+            key: 'gmsw',
+            data: false
+          })
+        }
+      }
+    })
   },
   onLoad: function () {
     that = this;
@@ -402,7 +436,6 @@ Page({
           data.Data.yhzh = arr[2];
         }
         data.Data.nation = parseInt(data.Data.nation)
-        console.log(data.Data)
         this.setData({
           ajaxData: data.Data
         })
@@ -442,7 +475,7 @@ Page({
                 'ajaxData.alleryarr': arr
               })
             },
-            error: error => {}
+            error: error => { }
           });
         }
       }

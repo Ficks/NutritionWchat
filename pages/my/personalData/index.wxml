@@ -41,9 +41,11 @@
     </view>
     <view class="box">
         <view class="list bls">
+        
             <view class="td">
+                <navigator url="/pages/my/addCase/index">
                 病例史
-                <text>请选择</text>
+                <text>{{ajaxData.jbsname || '请选择'}}</text></navigator>
             </view>
         </view>
         <view class="list" bindtap="showSelectOpen" data-key="hyzt">

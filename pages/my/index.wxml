@@ -6,7 +6,7 @@
     </view>
     <view class="info">
       <view class="name">{{userInfo.nickname}}</view>
-      <view class="sexage">男 27岁</view>
+      <view class="sexage">{{d}}</view>
     </view>
   </view>
   <view class="box">
@@ -19,12 +19,12 @@
     <navigator url="/pages/allocation/details/index?type=10">合作伙伴</navigator>
   </view>
   <view class="barbom">
-    <navigator url="/pages/index/index" class="homo active">
+    <navigator open-type="redirect" url="/pages/index/index" class="homo">
       <image src="http://www.xyys.ltd/miniprogram/icon/sy.png" mode="scaleToFill"></image>
       <view>首页</view>
     </navigator>
     <view class="add" bindtap="showNav"></view>
-    <navigator url="/pages/my/index" class="my">
+    <navigator open-type="redirect" url="/pages/my/index" class="my active">
       <image src="http://www.xyys.ltd/miniprogram/icon/wd_active.png" mode="scaleToFill"></image>
       <view>我的</view>
     </navigator>

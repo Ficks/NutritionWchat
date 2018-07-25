@@ -19,6 +19,13 @@ page {
   width: 100%;
 }
 
+.listcode{
+  text-align: center;
+  color: #8dc13b;
+}
+.listcode .td{
+  color: #8dc13b;
+}
 .list {
   height: 50px;
   line-height: 50px;

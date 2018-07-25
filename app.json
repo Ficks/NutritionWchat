@@ -22,7 +22,8 @@
     "pages/my/index",
     "pages/my/todayArchives/index",
     "pages/my/personalFiles/index",
-    "pages/my/personalData/index"
+    "pages/my/personalData/index",
+    "pages/my/addCase/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

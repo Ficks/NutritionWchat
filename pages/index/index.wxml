@@ -3,7 +3,7 @@
   <view class="top">
     <view class="location">长沙</view>
     <view class="search" bindtap="toSearch">搜索食材或菜谱</view>
-    <navigator url="/page/navigate/navigate?title=navigate" class="right"></navigator>
+    <navigator url="/pages/my/personalData/index" class="right"></navigator>
   </view>
   <view class="datazs">
     <view class="left">
@@ -15,7 +15,7 @@
       <view class="box">
         <view class="h2">健康得分</view>
         <view class="span">{{score}}</view>
-        <navigator url="/page/navigate/navigate?title=navigate">完善个人档案></navigator>
+        <navigator url="/pages/my/personalData/index">完善个人档案></navigator>
       </view>
     </view>
     <view class="right">
@@ -61,12 +61,12 @@
     </view>
   </view>
   <view class="barbom">
-    <navigator url="/pages/index/index" class="homo active">
+    <navigator open-type="redirect" url="/pages/index/index" class="homo active">
       <image src="http://www.xyys.ltd/miniprogram/icon/sy_active.png" mode="scaleToFill"></image>
       <view>首页</view>
     </navigator>
     <view class="add" bindtap="showNav"></view>
-    <navigator url="/pages/my/index" class="my">
+    <navigator open-type="redirect" url="/pages/my/index" class="my">
       <image src="http://www.xyys.ltd/miniprogram/icon/wd.png" mode="scaleToFill"></image>
       <view>我的</view>
     </navigator>

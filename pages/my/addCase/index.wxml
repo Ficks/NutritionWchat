@@ -1,0 +1,22 @@
+<!-- index.wxml -->
+<view class="container">
+    <view class="search">
+        <view class="search_input">
+            <input bindinput="searchInput" placeholder="输入文字搜索疾病" />
+        </view>
+        <view class="btn" bindtap="onSearch">搜索</view>
+    </view>
+    <view class="box">
+        <view class="tips" hidden="{{listArr.length!=0}}">没有查询到该疾病哦</view>
+        <view class="list listcode" bindtap="select" data-id="" data-name="无">
+            <view class="td">
+            没有疾病
+            </view>
+        </view>
+        <view class="list" wx:for="{{listArr}}" bindtap="select" data-id="{{item.Id}}" data-name="{{item.Name}}">
+            <view class="td">
+                {{item.Name}}
+            </view>
+        </view>
+    </view>
+</view>
