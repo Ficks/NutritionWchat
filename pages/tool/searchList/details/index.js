@@ -1,6 +1,7 @@
 var app = getApp();
 Page({
   data: {
+    ht: app.screenHeight,
     value: 0,
     canvasHeight: 80,
     lian: 0,

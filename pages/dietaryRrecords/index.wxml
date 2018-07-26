@@ -1,5 +1,5 @@
 <!-- index.wxml -->
-<view class="container">
+<scroll-view class="container" scroll-y>
     <view class="dates">
         <picker mode="date" value="{{date}}" bindchange="bindDateChange">
             <view class="date picker">{{date}}</view>
@@ -17,4 +17,4 @@
             </view>
         </view>
     </view>
-</view>
+</scroll-view>

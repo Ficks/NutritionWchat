@@ -1,2 +1,2 @@
 <!-- index.wxml -->
-<view class="container"></view>
+<scroll-view class="container" scroll-y></scroll-view>

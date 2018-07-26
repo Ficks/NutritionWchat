@@ -1,6 +1,6 @@
 <!-- index.wxml -->
 <import src="../../../wxParse/wxParse.wxml" />
-<view class="container">
+<scroll-view class="container" scroll-y>
     <view class="title">
         <view class="h1">{{details.title}}</view>
         <view class="p">发布时间：{{details.date}} 作者：{{details.auth}}</view>
@@ -8,4 +8,4 @@
     <div class="details">
         <template is="wxParse" data="{{wxParseData:article.nodes}}" />
     </div>
-</view>
+</scroll-view>

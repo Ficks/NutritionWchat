@@ -1,5 +1,5 @@
 <!-- index.wxml -->
-<view class="container">
+<scroll-view class="container" scroll-y>
     <view class="search">
         <view class="search_input">
             <input bindinput="searchInput" placeholder="输入文字搜索运动" />
@@ -15,24 +15,25 @@
             </view>
         </view>
     </view>
-    <!-- 刻度尺 -->
-    <view bindtap="hideKdcSelect" class="fixbom  {{kdc.show==false?'none':''}}"></view>
-    <view class="kdc_fix  {{kdc.show==false?'kdcout':''}}">
-        <view class="title">
-            {{date}}
-            <text class="cancel" bindtap="hideKdcSelect">取消</text>
-        </view>
-        <view class="value">
-            {{kdc.value}}min
-            <text class="abs">运动强度{{iten}}</text>
-        </view>
-        <view class="kdc">
-            <!-- 刻度尺 -->
-            <scroll-view scroll-x="true" bindscroll="bindscroll" scroll-left="{{scrollLeft}}">
-                <canvas canvas-id="canvas-ruler" id="canvas-ruler" style="height: {{canvasHeight}}px; width: {{canvasWidth}}px;"></canvas>
-            </scroll-view>
-            <canvas canvas-id="canvas-cursor" id="canvas-cursor"></canvas>
-        </view>
-        <view class="submit_btn" bindtap="submitAdd">完成</view>
+</scroll-view>
+<!-- 刻度尺 -->
+<view bindtap="hideKdcSelect" class="fixbom  {{kdc.show==false?'none':''}}"></view>
+<view class="kdc_fix  {{kdc.show==false?'kdcout':''}}">
+    <view class="title">
+        {{date}}
+        <text class="cancel" bindtap="hideKdcSelect">取消</text>
     </view>
+    <view class="value">
+        {{kdc.value}}min
+        <text class="abs">运动强度{{iten}}</text>
+    </view>
+    <view class="kdc">
+        <!-- 刻度尺 -->
+        <view class="section section_gap">
+            <view class="body-view">
+                <slider bindchange="setVal" value="{{kdc.value}}" bindchanging="setVal" min="0" max="150" />
+            </view>
+        </view>
+    </view>
+    <view class="submit_btn" bindtap="submitAdd">完成</view>
 </view>

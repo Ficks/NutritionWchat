@@ -1,5 +1,5 @@
 <!-- index.wxml -->
-<view class="container">
+<scroll-view class="container" scroll-y>
     <view class="date">{{yueDate}} ~ {{date}}</view>
     <view class="box">
         <view class="list">
@@ -17,4 +17,4 @@
             <view class="rl">{{item.totalVal}}{{item.unit}}</view>
         </view>
     </view>
-</view>
+</scroll-view>

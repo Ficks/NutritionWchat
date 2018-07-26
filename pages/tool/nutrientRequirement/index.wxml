@@ -1,5 +1,5 @@
 <!-- index.wxml -->
-<view class="container">
+<scroll-view class="container" scroll-y>
     <view class="tips" hidden="{{userInfo}}">
         用户信息不完善，请前往
         <navigator url="/pages/my/personalData/index">个人中心</navigator>
@@ -9,4 +9,4 @@
         {{item.name}}
         <text>{{item.value}}{{item.unit}}</text>
     </view>
-</view>
+</scroll-view>

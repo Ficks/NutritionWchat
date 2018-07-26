@@ -4,6 +4,7 @@ const app = getApp()
 
 Page({
   data: {
+    ht: app.screenHeight - 58,
     timer: null,
     motto: 'Hello World',
     score: 0,
@@ -18,35 +19,35 @@ Page({
     dietRecommendKey: '',
     navShow: false,
     routers: [{
-      name: '基本工具',
-      url: '/pages/tool/index',
-      icon: 'jbgj'
-    },
-    {
-      name: '膳食调配',
-      url: '/pages/allocation/index',
-      icon: 'sstp'
-    },
-    {
-      name: '膳食评估',
-      url: '/pages/assessment/index?type=1',
-      icon: 'sspg'
-    },
-    {
-      name: '自我评估',
-      url: '/pages/assessment/index?type=2',
-      icon: 'zwpg'
-    },
-    {
-      name: '走进我们',
-      url: '/pages/allocation/details/index?type=9',
-      icon: 'zjwm'
-    },
-    {
-      name: '合作伙伴',
-      url: '/pages/allocation/details/index?type=10',
-      icon: 'hzhb'
-    }
+        name: '基本工具',
+        url: '/pages/tool/index',
+        icon: 'jbgj'
+      },
+      {
+        name: '膳食调配',
+        url: '/pages/allocation/index',
+        icon: 'sstp'
+      },
+      {
+        name: '膳食评估',
+        url: '/pages/assessment/index?type=1',
+        icon: 'sspg'
+      },
+      {
+        name: '自我评估',
+        url: '/pages/assessment/index?type=2',
+        icon: 'zwpg'
+      },
+      {
+        name: '走进我们',
+        url: '/pages/allocation/details/index?type=9',
+        icon: 'zjwm'
+      },
+      {
+        name: '合作伙伴',
+        url: '/pages/allocation/details/index?type=10',
+        icon: 'hzhb'
+      }
     ]
   },
   //事件处理函数
@@ -56,6 +57,16 @@ Page({
     })
   },
   onLoad: function () {
+    wx.getLocation({
+      type: 'wgs84',
+      success: res => {
+        console.log(res)
+        var latitude = res.latitude
+        var longitude = res.longitude
+        var speed = res.speed
+        var accuracy = res.accuracy
+      }
+    })
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
@@ -168,7 +179,7 @@ Page({
             signIn: true
           });
         },
-        error: error => { }
+        error: error => {}
       });
     }
   },
@@ -194,7 +205,7 @@ Page({
 
 
       },
-      error: error => { }
+      error: error => {}
     });
   },
   toDetails() {

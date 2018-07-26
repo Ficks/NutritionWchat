@@ -1,9 +1,9 @@
 <!-- index.wxml -->
-<view class="container">
+<scroll-view class="container" scroll-y>
     <view class="jgg_grid">
         <view class="weui-grids">
             <view class="weui-grid" wx:for="{{routers}}" wx:key="name">
-                <navigator url="{{item.url}}">
+                <navigator url="{{item.url}}" hover-class="none">
                     <view class="weui-grid__icon">
                         <image src="http://www.xyys.ltd/miniprogram/icon/{{item.icon}}.png" mode="scaleToFill" />
                     </view>
@@ -12,4 +12,4 @@
             </view>
         </view>
     </view>
-</view>
+</scroll-view>

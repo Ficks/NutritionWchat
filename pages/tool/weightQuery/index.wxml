@@ -1,5 +1,5 @@
 <!-- index.wxml -->
-<view class="container">
+<scroll-view class="container" scroll-y>
     <view class="box">
         <view class="list" bindtap="showSelectOpen" data-key="Height">
             <view class="td">
@@ -47,29 +47,29 @@
             <image src="https://www.xyys.ltd/static/images/4.jpg" mode="widthFix" />
         </view>
     </view>
-    <view class="submit_btn" bindtap="search">确定查询</view>
-    <!-- 刻度尺 -->
-    <view bindtap="hideSelect" data-key="Height" class="fixbom  {{selectShow.Height==false?'none':''}}"></view>
-    <view class="kdc_fix  {{selectShow.Height==false?'kdcout':''}}">
-        <view class="title">选择身高</view>
-        <view class="value">身高 : {{ajaxData.Height}}cm</view>
-        <view class="kdc">
-            <view class="section section_gap">
-                <view class="body-view">
-                    <slider bindchange="setVal" value="{{ajaxData.Height}}" bindchanging="setVal" data-key="Height" min="0" max="210" />
-                </view>
+</scroll-view>
+<view class="submit_btn" bindtap="search">确定查询</view>
+<!-- 刻度尺 -->
+<view bindtap="hideSelect" data-key="Height" class="fixbom  {{selectShow.Height==false?'none':''}}"></view>
+<view class="kdc_fix  {{selectShow.Height==false?'kdcout':''}}">
+    <view class="title">选择身高</view>
+    <view class="value">身高 : {{ajaxData.Height}}cm</view>
+    <view class="kdc">
+        <view class="section section_gap">
+            <view class="body-view">
+                <slider bindchange="setVal" value="{{ajaxData.Height}}" bindchanging="setVal" data-key="Height" min="0" max="210" />
             </view>
         </view>
     </view>
-    <view bindtap="hideSelect" data-key="Weight" class="fixbom  {{selectShow.Weight==false?'none':''}}"></view>
-    <view class="kdc_fix  {{selectShow.Weight==false?'kdcout':''}}">
-        <view class="title">选择体重</view>
-        <view class="value">体重 : {{ajaxData.Weight}}kg</view>
-        <view class="kdc">
-            <view class="section section_gap">
-                <view class="body-view">
-                    <slider bindchange="setVal" value="{{ajaxData.Weight}}" bindchanging="setVal" data-key="Weight" min="0" max="150" />
-                </view>
+</view>
+<view bindtap="hideSelect" data-key="Weight" class="fixbom  {{selectShow.Weight==false?'none':''}}"></view>
+<view class="kdc_fix  {{selectShow.Weight==false?'kdcout':''}}">
+    <view class="title">选择体重</view>
+    <view class="value">体重 : {{ajaxData.Weight}}kg</view>
+    <view class="kdc">
+        <view class="section section_gap">
+            <view class="body-view">
+                <slider bindchange="setVal" value="{{ajaxData.Weight}}" bindchanging="setVal" data-key="Weight" min="0" max="150" />
             </view>
         </view>
     </view>

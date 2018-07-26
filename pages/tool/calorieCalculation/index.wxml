@@ -1,5 +1,5 @@
 <!-- index.wxml -->
-<view class="container">
+<scroll-view class="container" scroll-y>
     <view class="box">
         <view class="list" bindtap="showSelectOpen" data-key="Height">
             <view class="td">
@@ -49,85 +49,85 @@
     </view>
     <view class="jsh" hidden="{{kcal==''}}">计算后预计每日所需能量</view>
     <view class="kcal" hidden="{{kcal==''}}">{{kcal}}kcal</view>
-    <view class="submit_btn" bindtap="search">确定查询</view>
-    <!-- 刻度尺 -->
-    <view bindtap="hideSelect" data-key="Age" class="fixbom  {{selectShow.Age==false?'none':''}}"></view>
-    <view class="kdc_fix  {{selectShow.Age==false?'kdcout':''}}">
-        <view class="title">
-            选择年龄
-            <view class="yf" bindtap="showSelectOpen" data-key="yue" hidden="{{ajaxData.Age>0}}">
-                选择月份
-            </view>
-        </view>
-        <view class="value">年龄 : {{ajaxData.Age}}岁</view>
-        <view class="kdc">
-            <view class="section section_gap">
-                <view class="body-view">
-                    <slider bindchanging="setVal" value="{{ajaxData.Age}}" bindchange="setVal" data-key="Age" min="0" max="110" />
-                </view>
-            </view>
+</scroll-view>
+<view class="submit_btn" bindtap="search">确定查询</view>
+<!-- 刻度尺 -->
+<view bindtap="hideSelect" data-key="Age" class="fixbom  {{selectShow.Age==false?'none':''}}"></view>
+<view class="kdc_fix  {{selectShow.Age==false?'kdcout':''}}">
+    <view class="title">
+        选择年龄
+        <view class="yf" bindtap="showSelectOpen" data-key="yue" hidden="{{ajaxData.Age>0}}">
+            选择月份
         </view>
     </view>
-    <view bindtap="hideSelect" data-key="Height" class="fixbom  {{selectShow.Height==false?'none':''}}"></view>
-    <view class="kdc_fix  {{selectShow.Height==false?'kdcout':''}}">
-        <view class="title">选择身高</view>
-        <view class="value">身高 : {{ajaxData.Height}}cm</view>
-        <view class="kdc">
-            <view class="section section_gap">
-                <view class="body-view">
-                    <slider bindchanging="setVal" value="{{ajaxData.Height}}" bindchange="setVal" data-key="Height" min="0" max="210" />
-                </view>
+    <view class="value">年龄 : {{ajaxData.Age}}岁</view>
+    <view class="kdc">
+        <view class="section section_gap">
+            <view class="body-view">
+                <slider bindchanging="setVal" value="{{ajaxData.Age}}" bindchange="setVal" data-key="Age" min="0" max="110" />
             </view>
         </view>
     </view>
-    <view bindtap="hideSelect" data-key="Weight" class="fixbom  {{selectShow.Weight==false?'none':''}}"></view>
-    <view class="kdc_fix  {{selectShow.Weight==false?'kdcout':''}}">
-        <view class="title">选择体重</view>
-        <view class="value">体重 : {{ajaxData.Weight}}kg</view>
-        <view class="kdc">
-            <view class="section section_gap">
-                <view class="body-view">
-                    <slider bindchanging="setVal" value="{{ajaxData.Weight}}" bindchange="setVal" data-key="Weight" min="0" max="150" />
-                </view>
+</view>
+<view bindtap="hideSelect" data-key="Height" class="fixbom  {{selectShow.Height==false?'none':''}}"></view>
+<view class="kdc_fix  {{selectShow.Height==false?'kdcout':''}}">
+    <view class="title">选择身高</view>
+    <view class="value">身高 : {{ajaxData.Height}}cm</view>
+    <view class="kdc">
+        <view class="section section_gap">
+            <view class="body-view">
+                <slider bindchanging="setVal" value="{{ajaxData.Height}}" bindchange="setVal" data-key="Height" min="0" max="210" />
             </view>
         </view>
     </view>
-    <!-- 性别 -->
-    <view bindtap="hideSelect" data-key="sex" class="fixbom  {{selectShow.sex==false?'none':''}}"></view>
-    <view class="kdc_fix autoheight {{selectShow.sex==false?'kdcout':''}}">
-        <view class="title">选择性别</view>
-        <view class="fix_listbox">
-            <view class="fix_list" bindtap="selectXz" data-key="sex" data-val="1">男</view>
-            <view class="fix_list" bindtap="selectXz" data-key="sex" data-val="2">女</view>
-        </view>
-    </view>
-    <view bindtap="hideSelect" data-key="llsp" class="fixbom  {{selectShow.llsp==false?'none':''}}"></view>
-    <view class="kdc_fix autoheight {{selectShow.llsp==false?'kdcout':''}}">
-        <view class="title">选择劳力水平</view>
-        <view class="fix_listbox">
-            <view class="fix_list" bindtap="selectXz" data-key="llsp" data-val="1">轻度</view>
-            <view class="fix_list" bindtap="selectXz" data-key="llsp" data-val="2">中度</view>
-            <view class="fix_list" bindtap="selectXz" data-key="llsp" data-val="3">重度</view>
-        </view>
-    </view>
-    <view bindtap="hideSelect" data-key="yfxx" class="fixbom  {{selectShow.yfxx==false?'none':''}}"></view>
-    <view class="kdc_fix autoheight {{selectShow.yfxx==false?'kdcout':''}}">
-        <view class="title">选择孕妇选项</view>
-        <view class="fix_listbox">
-            <view class="fix_list" bindtap="selectXz" data-key="yfxx" data-val="0">否</view>
-            <view class="fix_list" bindtap="selectXz" data-key="yfxx" data-val="1">早孕期</view>
-            <view class="fix_list" bindtap="selectXz" data-key="yfxx" data-val="2">中孕期</view>
-            <view class="fix_list" bindtap="selectXz" data-key="yfxx" data-val="3">晚孕期</view>
-            <view class="fix_list" bindtap="selectXz" data-key="yfxx" data-val="4">哺育期</view>
-        </view>
-    </view>
-    <view bindtap="hideSelect" data-key="yue" class="fixbom yuefixbom  {{selectShow.yue==false?'none':''}}"></view>
-    <view class="kdc_fix autoheight {{selectShow.yue==false?'yueout':''}}">
-        <view class="title">选择月份</view>
-        <view class="fix_listbox">
-            <view class="fix_list" wx:for="{{11}}" bindtap="selectXz" data-key="yue" data-val="{{item+1}}">
-                {{item+1}}
+</view>
+<view bindtap="hideSelect" data-key="Weight" class="fixbom  {{selectShow.Weight==false?'none':''}}"></view>
+<view class="kdc_fix  {{selectShow.Weight==false?'kdcout':''}}">
+    <view class="title">选择体重</view>
+    <view class="value">体重 : {{ajaxData.Weight}}kg</view>
+    <view class="kdc">
+        <view class="section section_gap">
+            <view class="body-view">
+                <slider bindchanging="setVal" value="{{ajaxData.Weight}}" bindchange="setVal" data-key="Weight" min="0" max="150" />
             </view>
+        </view>
+    </view>
+</view>
+<!-- 性别 -->
+<view bindtap="hideSelect" data-key="sex" class="fixbom  {{selectShow.sex==false?'none':''}}"></view>
+<view class="kdc_fix autoheight {{selectShow.sex==false?'kdcout':''}}">
+    <view class="title">选择性别</view>
+    <view class="fix_listbox">
+        <view class="fix_list" bindtap="selectXz" data-key="sex" data-val="1">男</view>
+        <view class="fix_list" bindtap="selectXz" data-key="sex" data-val="2">女</view>
+    </view>
+</view>
+<view bindtap="hideSelect" data-key="llsp" class="fixbom  {{selectShow.llsp==false?'none':''}}"></view>
+<view class="kdc_fix autoheight {{selectShow.llsp==false?'kdcout':''}}">
+    <view class="title">选择劳力水平</view>
+    <view class="fix_listbox">
+        <view class="fix_list" bindtap="selectXz" data-key="llsp" data-val="1">轻度</view>
+        <view class="fix_list" bindtap="selectXz" data-key="llsp" data-val="2">中度</view>
+        <view class="fix_list" bindtap="selectXz" data-key="llsp" data-val="3">重度</view>
+    </view>
+</view>
+<view bindtap="hideSelect" data-key="yfxx" class="fixbom  {{selectShow.yfxx==false?'none':''}}"></view>
+<view class="kdc_fix autoheight {{selectShow.yfxx==false?'kdcout':''}}">
+    <view class="title">选择孕妇选项</view>
+    <view class="fix_listbox">
+        <view class="fix_list" bindtap="selectXz" data-key="yfxx" data-val="0">否</view>
+        <view class="fix_list" bindtap="selectXz" data-key="yfxx" data-val="1">早孕期</view>
+        <view class="fix_list" bindtap="selectXz" data-key="yfxx" data-val="2">中孕期</view>
+        <view class="fix_list" bindtap="selectXz" data-key="yfxx" data-val="3">晚孕期</view>
+        <view class="fix_list" bindtap="selectXz" data-key="yfxx" data-val="4">哺育期</view>
+    </view>
+</view>
+<view bindtap="hideSelect" data-key="yue" class="fixbom yuefixbom  {{selectShow.yue==false?'none':''}}"></view>
+<view class="kdc_fix autoheight {{selectShow.yue==false?'yueout':''}}">
+    <view class="title">选择月份</view>
+    <view class="fix_listbox">
+        <view class="fix_list" wx:for="{{11}}" bindtap="selectXz" data-key="yue" data-val="{{item+1}}">
+            {{item+1}}
         </view>
     </view>
 </view>

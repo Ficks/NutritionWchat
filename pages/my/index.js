@@ -4,6 +4,7 @@ const app = getApp()
 
 Page({
   data: {
+    ht: app.screenHeight - 58,
     navShow: false,
     userInfo: null,
     d: {},

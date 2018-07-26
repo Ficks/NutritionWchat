@@ -1,5 +1,5 @@
 <!-- index.wxml -->
-<view class="container">
+<scroll-view class="container" scroll-y>
     <view class="details">
         <view class="top">
             <image src="{{src}}" mode="widthFix" />
@@ -41,38 +41,38 @@
         </view>
     </view>
     <view class="submit_btn" bindtap="showAdd">{{!gmsw?'添加到今日饮食':'添加到过敏食物'}}</view>
-    <view bindtap="hideAdd" class="fixbom  {{show==false?'none':''}}"></view>
-    <view class="addfix  {{show==false?'hide':''}}">
-        <view class="tops">
-            <picker mode="date" value="{{date}}" bindchange="bindDateChange">
-                <view class="date picker">{{date}}</view>
-            </picker>
-            <view class="cancel" bindtap="hideAdd">取消</view>
-        </view>
-        <view class="add_details">
-            <image src="{{src}}" mode="widthFix" />
-            <view class="wz">
-                <view class="h2">{{details.title}}</view>
-                <view class="p">{{details.kcal}}kcal({{details.ming}}g)</view>
-            </view>
-            <view class="details_cancel" bindtap="hideAdd">详情></view>
-        </view>
-        <view class="kdc">
-            <!-- 刻度尺 -->
-            <view class="dw">
-                <text class="kcal">{{details.kcal}}kcal</text>
-                <text class="value">{{value}}g({{lian}}两)</text>
-            </view>
-            <view class="section section_gap">
-                <view class="body-view">
-                    <slider bindchange="setVal" value="{{value}}" bindchanging="setVal" min="0" max="1000" />
-                </view>
-            </view>
-        </view>
-        <!-- 选择早餐中餐晚餐 -->
-        <picker bindchange="foodFn" value="{{index}}" range="{{foodArr}}">
-            <view class="food">{{foodName==''?'请选择餐次':foodName}}</view>
+</scroll-view>
+<view bindtap="hideAdd" class="fixbom  {{show==false?'none':''}}"></view>
+<view class="addfix  {{show==false?'hide':''}}">
+    <view class="tops">
+        <picker mode="date" value="{{date}}" bindchange="bindDateChange">
+            <view class="date picker">{{date}}</view>
         </picker>
-        <view class="submit_btn" bindtap="submitAdd">完成</view>
+        <view class="cancel" bindtap="hideAdd">取消</view>
     </view>
+    <view class="add_details">
+        <image src="{{src}}" mode="widthFix" />
+        <view class="wz">
+            <view class="h2">{{details.title}}</view>
+            <view class="p">{{details.kcal}}kcal({{details.ming}}g)</view>
+        </view>
+        <view class="details_cancel" bindtap="hideAdd">详情></view>
+    </view>
+    <view class="kdc">
+        <!-- 刻度尺 -->
+        <view class="dw">
+            <text class="kcal">{{details.kcal}}kcal</text>
+            <text class="value">{{value}}g({{lian}}两)</text>
+        </view>
+        <view class="section section_gap">
+            <view class="body-view">
+                <slider bindchange="setVal" value="{{value}}" bindchanging="setVal" min="0" max="1000" />
+            </view>
+        </view>
+    </view>
+    <!-- 选择早餐中餐晚餐 -->
+    <picker bindchange="foodFn" value="{{index}}" range="{{foodArr}}">
+        <view class="food">{{foodName==''?'请选择餐次':foodName}}</view>
+    </picker>
+    <view class="submit_btn" bindtap="submitAdd">完成</view>
 </view>

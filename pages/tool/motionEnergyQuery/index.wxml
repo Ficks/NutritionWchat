@@ -1,5 +1,5 @@
 <!-- index.wxml -->
-<view class="container">
+<scroll-view class="container" scroll-y>
     <view class="list" wx:for="{{listArr}}">
         <view class="left">{{item.datedescc}}</view>
         <view class="right">
@@ -11,4 +11,4 @@
             <view class="f14">建议消耗{{item.proposalkcal}}kcal</view>
         </view>
     </view>
-</view>
+</scroll-view>

@@ -1,5 +1,5 @@
 <!-- index.wxml -->
-<view class="container">
+<scroll-view class="container" scroll-y style="height:{{ht}}px">
   <view class="top">
     <view class="location">长沙</view>
     <view class="search" bindtap="toSearch">搜索食材或菜谱</view>
@@ -27,7 +27,7 @@
   <view class="jgg_grid">
     <view class="weui-grids">
       <view class="weui-grid" wx:for="{{routers}}" wx:key="name">
-        <navigator url="{{item.url}}">
+        <navigator url="{{item.url}}" hover-class="none">
           <view class="weui-grid__icon">
             <image src="http://www.xyys.ltd/miniprogram/icon/{{item.icon}}.png" mode="scaleToFill" />
           </view>
@@ -60,48 +60,48 @@
       </navigator>
     </view>
   </view>
-  <view class="barbom">
-    <navigator open-type="redirect" url="/pages/index/index" class="homo active">
-      <image src="http://www.xyys.ltd/miniprogram/icon/sy_active.png" mode="scaleToFill"></image>
-      <view>首页</view>
+</scroll-view>
+<view class="barbom">
+  <navigator open-type="redirect" url="/pages/index/index" class="homo active">
+    <image src="http://www.xyys.ltd/miniprogram/icon/sy_active.png" mode="scaleToFill"></image>
+    <view>首页</view>
+  </navigator>
+  <view class="add" bindtap="showNav"></view>
+  <navigator open-type="redirect" url="/pages/my/index" class="my">
+    <image src="http://www.xyys.ltd/miniprogram/icon/wd.png" mode="scaleToFill"></image>
+    <view>我的</view>
+  </navigator>
+</view>
+<view bindtap="shareHide" class="fixbom  {{share==false?'none':''}}"></view>
+<view bindtap="shareHide" class="share {{share==false?'none':''}}">
+  <image src="http://tangyu.gotoip11.com/static/images/fx.png" mode="scaleToFill" />
+  <view class="text">
+    <view>请点击右上角</view>
+    <view>将它发送给指定朋友</view>
+    <view>或分享到朋友圈</view>
+  </view>
+</view>
+<view bindtap="hideNav" class="fixbom {{navShow==true?'':'none'}}"></view>
+<view class="navalert {{navShow==true?'':'nhide'}}">
+  <view class="navtol">
+    <navigator url="/pages/tool/searchList/index?dishesType=1&food=1">
+      <view class="title">早餐</view>
+      <text class="p">及加餐</text>
     </navigator>
-    <view class="add" bindtap="showNav"></view>
-    <navigator open-type="redirect" url="/pages/my/index" class="my">
-      <image src="http://www.xyys.ltd/miniprogram/icon/wd.png" mode="scaleToFill"></image>
-      <view>我的</view>
+    <navigator url="/pages/tool/searchList/index?dishesType=1&food=2">
+      <view class="title">中餐</view>
+      <text class="p">及加餐</text>
+    </navigator>
+    <navigator url="/pages/tool/searchList/index?dishesType=1&food=3">
+      <view class="title">晚餐</view>
+      <text class="p">及加餐</text>
+    </navigator>
+    <navigator url="/pages/addMotion/index">
+      <view class="title">运动</view>
+    </navigator>
+    <navigator url="/pages/dietaryRrecords/index">
+      <view class="title">饮食记录</view>
     </navigator>
   </view>
-  <view bindtap="shareHide" class="fixbom  {{share==false?'none':''}}"></view>
-  <view bindtap="shareHide" class="share {{share==false?'none':''}}">
-    <image src="http://tangyu.gotoip11.com/static/images/fx.png" mode="scaleToFill" />
-    <view class="text">
-      <view>请点击右上角</view>
-      <view>将它发送给指定朋友</view>
-      <view>或分享到朋友圈</view>
-    </view>
-  </view>
-  <view bindtap="hideNav" class="fixbom {{navShow==true?'':'none'}}"></view>
-  <view class="navalert {{navShow==true?'':'nhide'}}">
-    <view class="navtol">
-      <navigator url="/pages/tool/searchList/index?dishesType=1&food=1">
-        <view class="title">早餐</view>
-        <text class="p">及加餐</text>
-      </navigator>
-      <navigator url="/pages/tool/searchList/index?dishesType=1&food=2">
-        <view class="title">中餐</view>
-        <text class="p">及加餐</text>
-      </navigator>
-      <navigator url="/pages/tool/searchList/index?dishesType=1&food=3">
-        <view class="title">晚餐</view>
-        <text class="p">及加餐</text>
-      </navigator>
-      <navigator url="/pages/addMotion/index">
-        <view class="title">运动</view>
-      </navigator>
-      <navigator url="/pages/dietaryRrecords/index">
-        <view class="title">饮食记录</view>
-      </navigator>
-    </view>
-    <view class="nav_cancel" bindtap="hideNav"></view>
-  </view>
+  <view class="nav_cancel" bindtap="hideNav"></view>
 </view>

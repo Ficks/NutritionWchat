@@ -13,7 +13,7 @@ Page({
     })
   },
   onLoad: function () {
-    wx.show({
+    wx.showToast({
       title: '默认查询本人，如需查询其他人，请更新个人资料',
       icon: 'none'
     })

@@ -1,5 +1,5 @@
 <!-- index.wxml -->
-<view class="container">
+<scroll-view class="container" scroll-y>
     <view class="isZcr" hidden="{{isTNB}}">
         <view class="tlw">
             <view class="tl">早餐</view>
@@ -42,4 +42,4 @@
             </navigator>
         </view>
     </view>
-</view>
+</scroll-view>

@@ -9,7 +9,6 @@ page {
 .container {
   background: #f4f4f4;
   height: 100%;
-  overflow: auto;
 }
 
 .barbom {
@@ -54,7 +53,6 @@ page {
   line-height: 40px;
   background: #8dc13b;
   color: #fff;
-  border-top: 1px solid #ccc;
 }
 
 .top .location {
