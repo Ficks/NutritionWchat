@@ -13,20 +13,20 @@
                 <text>{{ajaxData.sexvalue===0?'男':ajaxData.sexvalue===1?"女":"请选择"}}</text>
             </view>
         </view>
-        <view class="list" bindtap="select" data-op="age">
+        <view class="list" bindtap="showSelectOpen" data-key="age">
             <view class="td">
                 年龄
                 <text wx:if="{{yue==0}}">{{ajaxData.age==0?'请选择':ajaxData.age+'岁'}}</text>
                 <text wx:if="{{yue!=0}}">{{yue}}个月</text>
             </view>
         </view>
-        <view class="list" bindtap="select" data-op="height">
+        <view class="list" bindtap="showSelectOpen" data-key="height">
             <view class="td">
                 身高
                 <text>{{ajaxData.height==0?'请选择':ajaxData.height+'cm'}}</text>
             </view>
         </view>
-        <view class="list" bindtap="select" data-op="weight">
+        <view class="list" bindtap="showSelectOpen" data-key="weight">
             <view class="td">
                 体重
                 <text>{{ajaxData.weight==0?'请选择':ajaxData.weight+'kg'}}</text>
@@ -41,11 +41,11 @@
     </view>
     <view class="box">
         <view class="list bls">
-        
             <view class="td">
                 <navigator url="/pages/my/addCase/index">
-                病例史
-                <text>{{ajaxData.jbsname || '请选择'}}</text></navigator>
+                    病例史
+                    <text>{{ajaxData.jbsname || '请选择'}}</text>
+                </navigator>
             </view>
         </view>
         <view class="list" bindtap="showSelectOpen" data-key="hyzt">
@@ -143,21 +143,45 @@
     </div>
     <view class="submit_btn" bindtap="submitEdit">保存并返回</view>
     <!-- 刻度尺 -->
-    <view bindtap="hideKdcSelect" class="fixbom  {{kdc.show==false?'none':''}}"></view>
-    <view class="kdc_fix  {{kdc.show==false?'kdcout':''}}">
+    <view bindtap="hideSelect" data-key="age" class="fixbom  {{selectShow.age==false?'none':''}}"></view>
+    <view class="kdc_fix  {{selectShow.age==false?'kdcout':''}}">
         <view class="title">
-            选择{{kdc.name}}
-            <view class="yf" bindtap="showSelectOpen" data-key="yue" hidden="{{kdc.valKey!=='age' || ajaxData.age>0}}">
+            选择年龄
+            <view class="yf" bindtap="showSelectOpen" data-key="yue" hidden="{{ajaxData.age>0}}">
                 选择月份
             </view>
         </view>
-        <view class="value">{{kdc.name}} : {{kdc.value}}{{kdc.dw}}</view>
+        <view class="value">年龄 : {{ajaxData.age}}岁</view>
         <view class="kdc">
-            <!-- 刻度尺 -->
-            <scroll-view scroll-x="true" bindscroll="bindscroll" scroll-left="{{scrollLeft}}">
-                <canvas canvas-id="canvas-ruler" id="canvas-ruler" style="height: {{canvasHeight}}px; width: {{canvasWidth}}px;"></canvas>
-            </scroll-view>
-            <canvas canvas-id="canvas-cursor" id="canvas-cursor"></canvas>
+            <view class="section section_gap">
+                <view class="body-view">
+                    <slider bindchanging="setVal" value="{{ajaxData.age}}" bindchange="setVal" data-key="age" min="0" max="110" />
+                </view>
+            </view>
+        </view>
+    </view>
+    <view bindtap="hideSelect" data-key="height" class="fixbom  {{selectShow.height==false?'none':''}}"></view>
+    <view class="kdc_fix  {{selectShow.height==false?'kdcout':''}}">
+        <view class="title">选择身高</view>
+        <view class="value">身高 : {{ajaxData.height}}cm</view>
+        <view class="kdc">
+            <view class="section section_gap">
+                <view class="body-view">
+                    <slider bindchanging="setVal" value="{{ajaxData.height}}" bindchange="setVal" data-key="height" min="0" max="210" />
+                </view>
+            </view>
+        </view>
+    </view>
+    <view bindtap="hideSelect" data-key="weight" class="fixbom  {{selectShow.weight==false?'none':''}}"></view>
+    <view class="kdc_fix  {{selectShow.weight==false?'kdcout':''}}">
+        <view class="title">选择体重</view>
+        <view class="value">体重 : {{ajaxData.weight}}kg</view>
+        <view class="kdc">
+            <view class="section section_gap">
+                <view class="body-view">
+                    <slider bindchanging="setVal" value="{{ajaxData.weight}}" bindchange="setVal" data-key="weight" min="0" max="150" />
+                </view>
+            </view>
         </view>
     </view>
     <!-- 性别 -->

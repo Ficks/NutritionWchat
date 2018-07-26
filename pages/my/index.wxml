@@ -6,7 +6,7 @@
     </view>
     <view class="info">
       <view class="name">{{userInfo.nickname}}</view>
-      <view class="sexage">{{d}}</view>
+      <view class="sexage">{{age}} {{d.sexname}}</view>
     </view>
   </view>
   <view class="box">

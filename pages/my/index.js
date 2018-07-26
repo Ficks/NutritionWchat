@@ -6,7 +6,8 @@ Page({
   data: {
     navShow: false,
     userInfo: null,
-    d: {}
+    d: {},
+    age: 0,
   },
   //事件处理函数
   bindViewTap: function () {
@@ -25,7 +26,15 @@ Page({
       data: {},
       success: data => {
         //成功的处理
+        let age = data.Data.age;
+        console.log(age);
+        if (age < 1 && age > 0) {
+          age = Math.round(age * 12) + '个月'
+        } else {
+          age = age + '岁'
+        }
         this.setData({
+          age: age,
           d: data.Data
         })
       },

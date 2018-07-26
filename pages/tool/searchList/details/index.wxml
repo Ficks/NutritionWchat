@@ -63,10 +63,11 @@
                 <text class="kcal">{{details.kcal}}kcal</text>
                 <text class="value">{{value}}g({{lian}}两)</text>
             </view>
-            <scroll-view scroll-x="true" bindscroll="bindscroll" scroll-left="{{scrollLeft}}">
-                <canvas canvas-id="canvas-ruler" id="canvas-ruler" style="height: {{canvasHeight}}px; width: {{canvasWidth}}px;"></canvas>
-            </scroll-view>
-            <canvas canvas-id="canvas-cursor" id="canvas-cursor"></canvas>
+            <view class="section section_gap">
+                <view class="body-view">
+                    <slider bindchange="setVal" value="{{value}}" bindchanging="setVal" min="0" max="1000" />
+                </view>
+            </view>
         </view>
         <!-- 选择早餐中餐晚餐 -->
         <picker bindchange="foodFn" value="{{index}}" range="{{foodArr}}">

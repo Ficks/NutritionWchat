@@ -242,3 +242,7 @@ page {
   color: #fff;
   border-radius: 4px;
 }
+
+.kdc {
+  margin-bottom: 30px;
+}
