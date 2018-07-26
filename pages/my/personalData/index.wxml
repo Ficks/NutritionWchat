@@ -51,12 +51,12 @@
         <view class="list" bindtap="showSelectOpen" data-key="hyzt">
             <view class="td">
                 孕妇选项
-                <text wx:if="{{!ajaxData.hyzt && ajaxData.hyzt!=0}}">请选择</text>
                 <text wx:if="{{ajaxData.hyzt===0}}">否</text>
-                <text wx:if="{{ajaxData.hyzt===1}}">早孕期</text>
-                <text wx:if="{{ajaxData.hyzt===2}}">中孕期</text>
-                <text wx:if="{{ajaxData.hyzt===3}}">晚孕期</text>
-                <text wx:if="{{ajaxData.hyzt===4}}">哺育期</text>
+                <text wx:elif="{{ajaxData.hyzt===1}}">早孕期</text>
+                <text wx:elif="{{ajaxData.hyzt===2}}">中孕期</text>
+                <text wx:elif="{{ajaxData.hyzt===3}}">晚孕期</text>
+                <text wx:elif="{{ajaxData.hyzt===4}}">哺育期</text>
+				<text wx:else>请选择</text>
             </view>
         </view>
         <view class="list" bindtap="showSelectOpen" data-key="ysxhid">
@@ -237,27 +237,17 @@
 <view class="kdc_fix autoheight {{selectShow.occupation==false?'kdcout':''}}">
     <view class="title">选择职业</view>
     <view class="fix_listbox">
-        <view class="fix_list" bindtap="selectXz" data-key="occupation" data-val="国家公务员">
-            国家公务员
-        </view>
-        <view class="fix_list" bindtap="selectXz" data-key="occupation" data-val="专业技术人员">
-            专业技术人员
-        </view>
+        <view class="fix_list" bindtap="selectXz" data-key="occupation" data-val="国家公务员">国家公务员</view>
+        <view class="fix_list" bindtap="selectXz" data-key="occupation" data-val="专业技术人员">专业技术人员</view>
         <view class="fix_list" bindtap="selectXz" data-key="occupation" data-val="职员">职员</view>
-        <view class="fix_list" bindtap="selectXz" data-key="occupation" data-val="企业管理者">
-            企业管理者
-        </view>
+        <view class="fix_list" bindtap="selectXz" data-key="occupation" data-val="企业管理者">企业管理者</view>
         <view class="fix_list" bindtap="selectXz" data-key="occupation" data-val="工人">工人</view>
         <view class="fix_list" bindtap="selectXz" data-key="occupation" data-val="农民">农民</view>
         <view class="fix_list" bindtap="selectXz" data-key="occupation" data-val="学生">学生</view>
         <view class="fix_list" bindtap="selectXz" data-key="occupation" data-val="现役军人">现役军人</view>
-        <view class="fix_list" bindtap="selectXz" data-key="occupation" data-val="个体经营者">
-            个体经营者
-        </view>
+        <view class="fix_list" bindtap="selectXz" data-key="occupation" data-val="个体经营者">个体经营者</view>
         <view class="fix_list" bindtap="selectXz" data-key="occupation" data-val="无业人员">无业人员</view>
-        <view class="fix_list" bindtap="selectXz" data-key="occupation" data-val="退（离）休人员">
-            退（离）休人员
-        </view>
+        <view class="fix_list" bindtap="selectXz" data-key="occupation" data-val="退（离）休人员">退（离）休人员</view>
         <view class="fix_list" bindtap="selectXz" data-key="occupation" data-val="其他">其他</view>
     </view>
 </view>
@@ -265,17 +255,11 @@
 <view class="kdc_fix autoheight {{selectShow.marriage==false?'kdcout':''}}">
     <view class="title">选择婚姻</view>
     <view class="fix_listbox">
-        <view class="fix_list" bindtap="selectXz" data-key="marriage" data-val="已婚一起生活">
-            已婚一起生活
-        </view>
+        <view class="fix_list" bindtap="selectXz" data-key="marriage" data-val="已婚一起生活">已婚一起生活</view>
         <view class="fix_list" bindtap="selectXz" data-key="marriage" data-val="离异">离异</view>
-        <view class="fix_list" bindtap="selectXz" data-key="marriage" data-val="已婚分居一月以上">
-            已婚分居一月以上
-        </view>
+        <view class="fix_list" bindtap="selectXz" data-key="marriage" data-val="已婚分居一月以上">已婚分居一月以上</view>
         <view class="fix_list" bindtap="selectXz" data-key="marriage" data-val="鳏/寡居">鳏/寡居</view>
-        <view class="fix_list" bindtap="selectXz" data-key="marriage" data-val="单身，从未婚">
-            单身，从未婚
-        </view>
+        <view class="fix_list" bindtap="selectXz" data-key="marriage" data-val="单身，从未婚">单身，从未婚</view>
         <view class="fix_list" bindtap="selectXz" data-key="marriage" data-val="未婚同居">未婚同居</view>
         <view class="fix_list" bindtap="selectXz" data-key="marriage" data-val="其他">其他</view>
     </view>
@@ -290,34 +274,20 @@
             高中/中专/高职
         </view>
         <view class="fix_list" bindtap="selectXz" data-key="education" data-val="大专/大学">大专/大学</view>
-        <view class="fix_list" bindtap="selectXz" data-key="education" data-val="研究生及以上">
-            研究生及以上
-        </view>
+        <view class="fix_list" bindtap="selectXz" data-key="education" data-val="研究生及以上">研究生及以上</view>
     </view>
 </view>
 <view bindtap="hideSelect" data-key="familyincome" class="fixbom  {{selectShow.familyincome==false?'none':''}}"></view>
 <view class="kdc_fix autoheight {{selectShow.familyincome==false?'kdcout':''}}">
     <view class="title">选择收入</view>
     <view class="fix_listbox">
-        <view class="fix_list" bindtap="selectXz" data-key="familyincome" data-val="3万以下">
-            3万以下
-        </view>
+        <view class="fix_list" bindtap="selectXz" data-key="familyincome" data-val="3万以下">3万以下</view>
         <view class="fix_list" bindtap="selectXz" data-key="familyincome" data-val="3-8">3-8</view>
-        <view class="fix_list" bindtap="selectXz" data-key="familyincome" data-val="8-15">
-            8-15
-        </view>
-        <view class="fix_list" bindtap="selectXz" data-key="familyincome" data-val="15-30">
-            15-30
-        </view>
-        <view class="fix_list" bindtap="selectXz" data-key="familyincome" data-val="30-50">
-            30-50
-        </view>
-        <view class="fix_list" bindtap="selectXz" data-key="familyincome" data-val="50-100">
-            50-100
-        </view>
-        <view class="fix_list" bindtap="selectXz" data-key="familyincome" data-val="100万以上">
-            100万以上
-        </view>
+        <view class="fix_list" bindtap="selectXz" data-key="familyincome" data-val="8-15">8-15</view>
+        <view class="fix_list" bindtap="selectXz" data-key="familyincome" data-val="15-30">15-30</view>
+        <view class="fix_list" bindtap="selectXz" data-key="familyincome" data-val="30-50">30-50</view>
+        <view class="fix_list" bindtap="selectXz" data-key="familyincome" data-val="50-100">50-100</view>
+        <view class="fix_list" bindtap="selectXz" data-key="familyincome" data-val="100万以上">100万以上</view>
     </view>
 </view>
 <view bindtap="hideSelect" data-key="yue" class="fixbom yuefixbom  {{selectShow.yue==false?'none':''}}"></view>

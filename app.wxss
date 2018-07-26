@@ -76,3 +76,7 @@ textarea:-ms-input-placeholder {
 .submit_btn:active {
   opacity: .9;
 }
+
+.fix_list:active {
+  background: #ccc;
+}
