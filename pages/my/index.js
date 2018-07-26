@@ -15,6 +15,9 @@ Page({
       url: '../logs/logs'
     })
   },
+  onShow() {
+    this.onLoad();
+  },
   onLoad: function () {
     this.setData({
       userInfo: app.globalData.userInfo
