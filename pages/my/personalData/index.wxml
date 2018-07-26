@@ -2,7 +2,7 @@
 <scroll-view class="container" scroll-y>
     <view class="box">
         <view class="list">
-            <view class="td">
+            <view class="td  nobg">
                 姓名
                 <input type="text" data-key="name" value="{{ajaxData.name}}" bindinput="editInput" placeholder-class="dsss" placeholder="请输入姓名" />
             </view>
@@ -123,19 +123,19 @@
     <div class="box tl_box">
         <view class="tls">合伙人及退款</view>
         <view class="list">
-            <view class="td">
+            <view class="td nobg">
                 开户行
                 <input type="text" data-key="khh" value="{{ajaxData.khh}}" bindinput="editInput" placeholder-class="dsss" placeholder="请输入开户行" />
             </view>
         </view>
         <view class="list">
-            <view class="td">
+            <view class="td nobg">
                 开户人
                 <input type="text" data-key="khr" value="{{ajaxData.khr}}" bindinput="editInput" placeholder-class="dsss" placeholder="请输入开户人" />
             </view>
         </view>
         <view class="list">
-            <view class="td">
+            <view class="td nobg">
                 银行账号
                 <input type="text" data-key="yhzh" value="{{ajaxData.yhzh}}" bindinput="editInput" placeholder-class="dsss" placeholder="请输入银行账号" />
             </view>

@@ -41,6 +41,10 @@ page {
   position: relative;
 }
 
+.list .td.nobg {
+  background: none;
+}
+
 .bls {
   margin-top: 50px;
 }

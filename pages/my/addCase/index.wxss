@@ -10,7 +10,6 @@ page {
   height: 100%;
   box-sizing: border-box;
   overflow: auto;
-  padding-bottom: 90px;
 }
 
 .box {
@@ -19,13 +18,15 @@ page {
   width: 100%;
 }
 
-.listcode{
+.listcode {
   text-align: center;
   color: #8dc13b;
 }
-.listcode .td{
+
+.listcode .td {
   color: #8dc13b;
 }
+
 .list {
   height: 50px;
   line-height: 50px;
