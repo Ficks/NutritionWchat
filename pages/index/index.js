@@ -4,6 +4,7 @@ const app = getApp()
 
 Page({
   data: {
+    city: '',
     ht: app.screenHeight - 58,
     timer: null,
     motto: 'Hello World',
@@ -65,6 +66,20 @@ Page({
         var longitude = res.longitude
         var speed = res.speed
         var accuracy = res.accuracy
+
+        app.$http({
+          url: "/api/User/GeoDecoding",
+          type: "get",
+          data: {
+            lat: latitude,
+            lng: longitude
+          },
+          success: data => {
+            this.setData({
+              city: data.Data.result.address_component.city
+            })
+          }
+        });
       }
     })
     if (app.globalData.userInfo) {
