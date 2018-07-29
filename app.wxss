@@ -80,3 +80,8 @@ textarea:-ms-input-placeholder {
 .fix_list:active {
   background: #ccc;
 }
+
+.section_gap {
+  margin: 0 auto;
+  width: 85%;
+}

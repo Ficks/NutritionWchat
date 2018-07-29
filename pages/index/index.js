@@ -57,6 +57,20 @@ Page({
       url: '../logs/logs'
     })
   },
+  onShareAppMessage: function (res) {
+    if (res.from === 'button') {
+      // 来自页面内转发按钮
+      console.log(res.target)
+      console.log(res);
+
+
+    }
+    return {
+      title: '小易饮食',
+      path: '/pages/login/index',
+      imageUrl: "../../images/1.jpg"
+    }
+  },
   onLoad: function () {
     wx.getLocation({
       type: 'wgs84',

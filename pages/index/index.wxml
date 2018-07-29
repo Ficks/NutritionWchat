@@ -20,6 +20,7 @@
     </view>
     <view class="right">
       <view class="box">
+        <button open-type='share' class="share_btn"></button>
         <view class="ccz" bindtap="shareFn">分享</view>
       </view>
     </view>
@@ -72,7 +73,7 @@
     <view>我的</view>
   </navigator>
 </view>
-<view bindtap="shareHide" class="fixbom  {{share==false?'none':''}}"></view>
+<!-- <view bindtap="shareHide" class="fixbom  {{share==false?'none':''}}"></view>
 <view bindtap="shareHide" class="share {{share==false?'none':''}}">
   <image src="http://tangyu.gotoip11.com/static/images/fx.png" mode="scaleToFill" />
   <view class="text">
@@ -80,7 +81,7 @@
     <view>将它发送给指定朋友</view>
     <view>或分享到朋友圈</view>
   </view>
-</view>
+</view> -->
 <view bindtap="hideNav" class="fixbom {{navShow==true?'':'none'}}"></view>
 <view class="navalert {{navShow==true?'':'nhide'}}">
   <view class="navtol">

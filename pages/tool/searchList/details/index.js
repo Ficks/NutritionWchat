@@ -115,7 +115,8 @@ Page({
         ajaxData: {
           id: this.data.ajaxData.id,
           grams: this.data.value,
-          type: this.data.food
+          type: this.data.food,
+          date: this.data.date
         }
       })
     }

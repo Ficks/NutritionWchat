@@ -8,10 +8,10 @@
     <view class="text">{{text}}</view>
 </scroll-view>
 <view class="bom">
-    <view class="submit_btn" bindtap="shareFn">分享给好友</view>
+    <button open-type='share' class="submit_btn share_btn">分享给好友</button>
     <view class="back submit_btn" bindtap="back">返回</view>
 </view>
-<view bindtap="shareHide" class="fixbom  {{share==false?'none':''}}"></view>
+<!-- <view bindtap="shareHide" class="fixbom  {{share==false?'none':''}}"></view>
 <view bindtap="shareHide" class="share {{share==false?'none':''}}">
     <image src="http://tangyu.gotoip11.com/static/images/fx.png" mode="scaleToFill" />
     <view class="text">
@@ -19,4 +19,4 @@
         <view>将它发送给指定朋友</view>
         <view>或分享到朋友圈</view>
     </view>
-</view>
+</view> -->

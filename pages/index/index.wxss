@@ -83,6 +83,18 @@ page {
   background-size: 30px;
 }
 
+.share_btn {
+  position: absolute;
+  width: 70px;
+  height: 70px;
+  opacity: 0;
+  left: 50%;
+  top: 50%;
+  margin-left: -35px;
+  margin-top: -50px;
+  z-index: 999;
+}
+
 /* 签到 */
 
 .datazs {
@@ -141,6 +153,7 @@ page {
   line-height: 180px;
   text-align: center;
   float: left;
+  position: relative;
   background: url("http://www.xyys.ltd/miniprogram/icon/fx.png") no-repeat center 45px;
 }
 
