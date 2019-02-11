@@ -20,35 +20,35 @@ Page({
     dietRecommendKey: '',
     navShow: false,
     routers: [{
-        name: '基本工具',
-        url: '/pages/tool/index',
-        icon: 'jbgj'
-      },
-      {
-        name: '膳食调配',
-        url: '/pages/allocation/index',
-        icon: 'sstp'
-      },
-      {
-        name: '膳食评估',
-        url: '/pages/assessment/index?type=1',
-        icon: 'sspg'
-      },
-      {
-        name: '自我评估',
-        url: '/pages/assessment/index?type=2',
-        icon: 'zwpg'
-      },
-      {
-        name: '走进我们',
-        url: '/pages/allocation/details/index?type=9',
-        icon: 'zjwm'
-      },
-      {
-        name: '合作伙伴',
-        url: '/pages/allocation/details/index?type=10',
-        icon: 'hzhb'
-      }
+      name: '基本工具',
+      url: '/pages/tool/index',
+      icon: 'jbgj'
+    },
+    {
+      name: '膳食调配',
+      url: '/pages/allocation/index',
+      icon: 'sstp'
+    },
+    {
+      name: '膳食评估',
+      url: '/pages/assessment/index?type=1',
+      icon: 'sspg'
+    },
+    {
+      name: '自我评估',
+      url: '/pages/assessment/index?type=2',
+      icon: 'zwpg'
+    },
+    {
+      name: '走进我们',
+      url: '/pages/allocation/details/index?type=9',
+      icon: 'zjwm'
+    },
+    {
+      name: '合作伙伴',
+      url: '/pages/allocation/details/index?type=10',
+      icon: 'hzhb'
+    }
     ]
   },
   //事件处理函数
@@ -177,7 +177,7 @@ Page({
   toSearch() {
     // 跳转到搜索页面
     wx.navigateTo({
-      url: "/pages/tool/searchList/index?dishesType=1"
+      url: "/pages/tool/searchList/index?dishesType=''"
     })
   },
   // 早中晚餐切换
@@ -208,7 +208,7 @@ Page({
             signIn: true
           });
         },
-        error: error => {}
+        error: error => { }
       });
     }
   },
@@ -234,7 +234,7 @@ Page({
 
 
       },
-      error: error => {}
+      error: error => { }
     });
   },
   toDetails() {

@@ -85,15 +85,15 @@
 <view bindtap="hideNav" class="fixbom {{navShow==true?'':'none'}}"></view>
 <view class="navalert {{navShow==true?'':'nhide'}}">
   <view class="navtol">
-    <navigator url="/pages/tool/searchList/index?dishesType=1&food=1">
+    <navigator url="/pages/tool/searchList/index?dishesType=''&food=1">
       <view class="title">早餐</view>
       <text class="p">及加餐</text>
     </navigator>
-    <navigator url="/pages/tool/searchList/index?dishesType=1&food=2">
+    <navigator url="/pages/tool/searchList/index?dishesType=''&food=2">
       <view class="title">中餐</view>
       <text class="p">及加餐</text>
     </navigator>
-    <navigator url="/pages/tool/searchList/index?dishesType=1&food=3">
+    <navigator url="/pages/tool/searchList/index?dishesType=''&food=3">
       <view class="title">晚餐</view>
       <text class="p">及加餐</text>
     </navigator>
