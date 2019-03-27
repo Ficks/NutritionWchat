@@ -20,13 +20,11 @@ Page({
       // 来自页面内转发按钮
       console.log(res.target)
       console.log(res);
-
-
     }
     return {
-      title: '小易饮食',
+      title: '健康饮食，更多内容关注“小易饮食”公众号',
       path: '/pages/login/index',
-      imageUrl: "../../../images/1.jpg"
+      imageUrl: "../../../images/share.jpg"
     }
   },
   onLoad: function (data) {
