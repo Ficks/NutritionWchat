@@ -80,9 +80,6 @@ Page({
         var longitude = res.longitude
         var speed = res.speed
         var accuracy = res.accuracy;
-        this.setData({
-          city: '定位中'
-        })
         app.$http({
           url: "/api/User/GeoDecoding",
           type: "get",
