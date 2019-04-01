@@ -1,7 +1,7 @@
 <!-- index.wxml -->
 <scroll-view class="container" scroll-y style="height:{{ht}}px">
   <view class="top">
-    <view class="location">{{city||'定位中'}}</view>
+    <view class="location">{{city||'请稍后'}}</view>
     <view class="search" bindtap="toSearch">搜索食材或菜谱</view>
     <navigator url="/pages/my/personalData/index" class="right"></navigator>
   </view>
